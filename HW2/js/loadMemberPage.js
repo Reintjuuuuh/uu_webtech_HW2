@@ -21,26 +21,53 @@ function fileSelection(event) {
     }
 
     //Read the file
-    let jsonObject = readJsonFile(file);
-
+    readJsonFile(file, x => alert(x.firstName));
 }
 
-function readJsonFile(file) {
+function readJsonFile(file, functionWhenRead) {
     const reader = new FileReader();
-    let fileContent;
 
     reader.onload = () => {
-        fileContent = reader.result;
-        alert(fileContent);
+        let jsonString = reader.result;
+        let jsonObject = JSON.parse(jsonString);
+        functionWhenRead(jsonObject);
     }
 
-    let jsonString = reader.readAsText(file);
-    let jsonObject = JSON.parse(jsonString);
-    return jsonObject;
+    reader.onerror = () => {
+        alert("Something went wrong");
+    }
+
+    reader.readAsText(file);
 }
 
 function onRun() {
-    addAllEventListeners();
+    addAllEventListeners(); 
 }
+
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName; /*String*/
+        this.lastName = lastName; /*String*/
+    }
+}
+
+class Student extends Person {
+    constructor(age, hobbies, email, photo, major, courses) {
+        this.age = age; /*Number*/
+        this.hobbies = hobbies; /*Array of strings*/
+        this.email = email; /*String: link to a file with a photo*/
+        this.photo = photo; /*String*/
+        this.major = major; /*String*/
+        this.courses = courses.map(x => new Course(x.title, x.teacher, x.description));
+    }
+}
+
+class Course {
+    constructor(title, teacher, description) {
+        this.title = title; /*String*/
+        this.teacher = new Person(teacher.firstName, teacher.lastName); /*Person*/
+        this.description = description; /*String*/
+    }
+}  
 
 onRun();
