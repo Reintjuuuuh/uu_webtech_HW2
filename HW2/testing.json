@@ -1,0 +1,23 @@
+[
+  {
+    "firstName": "Edu",
+    "lastName": "Woldhuis",
+    "age": 19,
+    "hobbies": ["Hacking", "Programming", "Bouldering"],
+    "email": "woldhuis.edu@gmail.com",
+    "photo": "edu.jpg",
+    "major": "Computer Science",
+    "courses": [
+      {
+        "title": "Webtechnologie",
+        "teacher": { "firstName": "Sergey", "lastName": "Sosnovsky" },
+        "description": "Het Internet is een van de meest relevante toepassingen van informatica in de wereld. En voor veel mensen in de buitenwereld staat het Internet zelfs gelijk aan de meest zichtbare component daarvan: het World Wide Web. In deze praktische cursus kijken we hoe voor dit specifieke onderdeel van het Internet geprogrammeerd kan worden, op een veilige en werkbare manier, zowel voor de eindgebruiker als voor de programmeur. De historische context en bijbehorende technische concepten worden toegelicht."
+      },
+      {
+        "title": "Databases",
+        "teacher": { "firstName": "Hans", "lastName": "Philippi" },
+        "description": "Bedrijfsprocessen draaien vooral om informatieverwerking. Deze informatie moet worden bijgehouden, daar zijn database management systemen (DBMS) voor. De verschillen met eenvoudige file-systemen zijn legio. Zo zijn er 'query-talen' om makkelijk informatie terug te vinden, 'transactie-systemen' om te zorgen dat veel gebruikers tegelijk de informatie kunnen raadplegen en veranderen, en schema-informatie om te weten wat de data eigenlijk betekent. In dit vak wordt de basis van relationele databases behandeld, waarbij de nadruk op ontwerpen en vraagtalen ligt. Daarnaast wordt gekeken naar de interne werking van een databasesysteem: hoe worden transacties verwerkt, hoe wordt een query geoptimaliseerd en uitgevoerd. Tenslotte besteden we aandacht aan enkele recente ontwikkelingen, zoals NoSQL databases."
+      }
+    ]
+  }
+]
