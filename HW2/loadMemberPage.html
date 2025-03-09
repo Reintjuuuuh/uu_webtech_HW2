@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charset="utf-8" />
-        <title>Webtech HW1</title>
-        <link rel="stylesheet" href="css/mainLayout.css">
-    </head>
-
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Webtech HW1</title>
+    <link rel="stylesheet" href="css/loadMemberPage.css">
+    <script src="js\loadMemberPage.js" defer></script>
+</head>
     <body>
         <header>
           About Who?
@@ -15,12 +15,10 @@
         <nav>Different pages for the styles</nav>
 
         <h1 class= "title"> Load your JSON file here to display the members information</h1>
-        <p id="file-loader">
-            <button id="file-loader__button">
-                Click here to select a file
-            </button>
-        </p>
-        
+        <div id="file-loader">
+        <input type="file" id="file-loader__input"> 
+        </div>
+
     </body>
   </html>
 
