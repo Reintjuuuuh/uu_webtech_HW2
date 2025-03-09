@@ -24,4 +24,4 @@ class Course {
         this.teacher = new Person(teacher.firstName, teacher.lastName); /*Person*/
         this.description = description; /*String*/
     }
-}
+}  
