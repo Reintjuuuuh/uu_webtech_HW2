@@ -1,8 +1,12 @@
+body{
+    margin: 0px;
+}
+
 header {
     background-color: rgb(157, 168, 196);
     font-size: clamp(30px, 3vw, 140px);
     font-family: "Lucida Calligraphy";
-    margin: 0;
+    margin: 0px;
     text-align: center;
 }
 

@@ -1,10 +1,9 @@
-//Make a refrence to elements that are needed
 const fileLoaderInput = document.getElementById("file-loader__input");
+var numberOfAlerts = 0;
 
 //Add all eventlisteners
 function addAllEventListeners() {
     fileLoaderInput.addEventListener("change", fileSelection);
-
 }
 
 function fileSelection(event) {
@@ -23,7 +22,7 @@ function fileSelection(event) {
     }
 
     //Read the file
-    readJsonFile(file, x => sessionStorage.setItem("student", x));
+    readJsonFile(file, loadPageWithInformation);
 }
 
 function readJsonFile(file, functionWhenRead) {
@@ -32,15 +31,8 @@ function readJsonFile(file, functionWhenRead) {
     //When loaded, parse json and execute given function
     reader.onload = () => {
         let jsonString = reader.result;
-        console.log(jsonString);
         let jsonObject = JSON.parse(jsonString);
-        if (verifyClass(jsonObject)) {
-            functionWhenRead(jsonString);
-            window.location.href = "mainLayout.html";
-        }
-        else {
-            alert("JSON file not in valid format");
-        }
+        functionWhenRead(jsonObject);
     }
 
     reader.onerror = () => {
@@ -50,27 +42,46 @@ function readJsonFile(file, functionWhenRead) {
     reader.readAsText(file);
 }
 
-function verifyClass(jsonObject) {
-    const requiredClass = Student;
+function loadPageWithInformation(studentObject) {
+    window.location.href = "mainLayout.html";
+    console.log("Done");
+    //Refrence to elements we need
+    const studentSection = document.getElementById("section-student");
+    const courseSection = document.getElementById("sectino-course");
+    console.log("Done");
+    //Create all elements
+    let studentSectionTitle = document.createElement("h1");
+    let courseSectionTitle = document.createElement("h2");
+    let paragraph = document.createElement("p");
+    let table = document.createElement("table");
+    let tableHead = document.createElement("thead")
+    let TableBody = document.createElement("tbody")
+    let tableRow = document.createElement("tr")
+    let tableHeadText = document.createElement("th");
+    let courseTableRowText = document.createElement("td");
 
-    try {
-        verifiedObject = new requiredClass(
-            jsonObject.firstName,
-            jsonObject.lastName,
-            jsonObject.age,
-            jsonObject.hobbies,
-            jsonObject.email,
-            jsonObject.photo,
-            jsonObject.major,
-            jsonObject.courses
-        );
-        return true;
-    }
+    //Put elements in
+    studentSection.appendChild(paragraph);
+    studentSection.p.appendChild(newText(studentObject.firstName));
+    studentSection.p.appendChild(newText(studentObject.lastName));
+    console.log("Done");
+}
 
-    catch {
-        alert("json is not of valid type");
-        return false;
+
+function VerifyClass(jsonObject) {
+    const classes = [Person, Student, Course];
+    let currentClass;
+    for (let i = 0; i < classes.length; i++) {
+        if (jsonObject instanceof classes[i]) {
+            currentClass = classes[i];
+        }
     }
+    return currentClass;
+}
+
+//Creates a new text node
+function newText(text) {
+    return document.createTextNode(text);
 }
 
 function onRun() {
@@ -85,8 +96,7 @@ class Person {
 }
 
 class Student extends Person {
-    constructor(firstName, lastName, age, hobbies, email, photo, major, courses) {
-        super(firstName, lastName);
+    constructor(age, hobbies, email, photo, major, courses) {
         this.age = age; /*Number*/
         this.hobbies = hobbies; /*Array of strings*/
         this.email = email; /*String: link to a file with a photo*/

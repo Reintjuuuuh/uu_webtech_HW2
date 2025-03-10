@@ -1,34 +1,5 @@
-.title {
-    background-color: inherit;
-    text-align: center;
-    font-size: clamp(30px, 2.2vw, 90px);
-    margin: 20px;
-}
-
-h1.title {
-    font-size: clamp(20px, 2vw, 70px);
-    margin: 10px;
-}
-
-#file-loader{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30vh;
-}
-
-#file-loader__button{
-    width: auto;
-    height: 15vh;
-}
-
-
-p {
-    text-align: center;
-    width: 100%;
-    color: black;
-    font-family: "Gadugi";
-    font-size: clamp(20px, 2vw, 80px);
+body{
+    margin: 0px;
 }
 
 header {
@@ -37,6 +8,7 @@ header {
     font-family: "Lucida Calligraphy";
     margin: 0;
     text-align: center;
+    height: 15vh;
 }
 
 nav {
@@ -44,7 +16,48 @@ nav {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 40px;
+    height: 5vh;
     background-color: rgb(194, 207, 237);
     margin: 0;
+}
+
+
+article{
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+}
+
+section {
+    border: 0.5vh solid black;
+    flex-grow: 1;
+}
+
+.title {
+    background-color: inherit;
+    text-align: center;
+    font-size: clamp(30px, 2.2vw, 90px);
+    height: 2vh;
+    margin: 3vh;
+}
+
+p {
+    text-align: center;
+    width: 100%;
+    color: black;
+    font-family: "Gadugi";
+    font-size: clamp(20px, 2vw, 80px);
+    margin: 3vh 0px;
+}
+
+table{
+
+}
+
+#section-student{
+
+}
+
+#section-course{
+
 }
