@@ -93,6 +93,14 @@ function loadPageWithInformation(studentObject) {
         fontMenu.appendChild(fontListNode);
     }
 
+    // Colour 
+    const colourCheckbox = document.createElement("input");
+    colourCheckbox.type = "color";
+    colourCheckbox.id = "colourCheckbox"
+
+    const colourLabel = document.createElement("label");
+    colourLabel.textContent = " Text colour |";
+
     // Size 
     const sizeCheckbox = document.createElement("input");
     sizeCheckbox.type = "number";
@@ -135,6 +143,8 @@ function loadPageWithInformation(studentObject) {
 
     footer.appendChild(menu);
     footer.appendChild(fontMenu);
+    footer.appendChild(colourCheckbox);
+    footer.appendChild(colourLabel);
     footer.appendChild(sizeCheckbox);
     footer.appendChild(sizeLabel);
     footer.appendChild(italicCheckbox);
@@ -151,6 +161,7 @@ function loadPageWithInformation(studentObject) {
         article.style.fontFamily = fontMenu.value;
         article.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
         article.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
+        article.style.color = colourCheckbox.value;
         console.log(article.style);
         
     })
