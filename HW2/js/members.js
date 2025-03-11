@@ -16,33 +16,42 @@ function loadPageWithInformation(studentObject) {
     const courseSection = document.getElementById("section-course");
     const amountOfCourses = studentObject.courses.length;
 
-    //Create all elements
-    let section = document.createElement("section");
+    //Create all elements that only apear once
     let h1El = document.createElement("h1");
-    let h2 = document.createElement("h2");
-    let paragraphEl = document.createElement("p");
+    let h2El = document.createElement("h2");
     let tableEl = document.createElement("table");
 
-    //Put elements in
+
+    //Put elements of studentsection in
     header.appendChild(newText(`About ${studentObject.firstName} ${studentObject.lastName}`));
     studentSection.appendChild(h1El);
     let studentSectionTitle = studentSection.getElementsByTagName("h1")[0];
     studentSectionTitle.appendChild(newText(`Who is ${studentObject.firstName} ${studentObject.lastName}?`))
 
-    studentSection.appendChild(paragraphEl);
-    let studentSectionParagraph = studentSection.getElementsByTagName("p")[0];
-    studentSectionParagraph.appendChild(newText(studentObject.firstName));
-    studentSectionParagraph.appendChild(newText(studentObject.lastName));
+    for (let i = 0; i < 5; i++) {
+        let paragraphEl = document.createElement("p");
+        studentSection.appendChild(paragraphEl);
+    }
+    let studentSectionParagraph = studentSection.getElementsByTagName("p");
+
+    studentSectionParagraph[0].appendChild(newText(`Name: ${studentObject.firstName} ${studentObject.lastName}`));
+    studentSectionParagraph[1].appendChild(newText(`Age: ${studentObject.age}`));
+    studentSectionParagraph[2].appendChild(newText(`Hobbies: ${studentObject.hobbies}`));
+    studentSectionParagraph[3].appendChild(newText(`Email: ${studentObject.email}`));
+    studentSectionParagraph[4].appendChild(newText(`Major: ${studentObject.major}`));
+
 
     //Creating course table
     courseSection.appendChild(tableEl);
     let table = courseSection.getElementsByTagName("table")[0];
     //Creating the head
-    let TableHead = table.getElementsByTagName("thead")[0];
+    let tableHeadEl = document.createElement("thead")
+    table.appendChild(tableHeadEl);
+    let tableHead = table.getElementsByTagName("thead")[0];
     let tableRow = document.createElement("tr")
-    TableHead.appendChild(tableRow);
-    let courseTableHeadRow = TableHead.getElementsByTagName("tr")[0];
-    for (let i = 0; i < 2; i++) {
+    tableHead.appendChild(tableRow);
+    let courseTableHeadRow = tableHead.getElementsByTagName("tr")[0];
+    for (let i = 0; i < 3; i++) {
         let tableHeadRowText = document.createElement("th");
         courseTableHeadRow.appendChild(tableHeadRowText);
     }
@@ -52,8 +61,10 @@ function loadPageWithInformation(studentObject) {
     courseTableHeadRowElements[2].appendChild(newText("Description"));
 
     //Creating the body
+    let tableBodyEl = document.createElement("tbody")
+    table.appendChild(tableBodyEl);
     tableBody = table.getElementsByTagName("tbody")[0];
-    for (let i = 0; i < amountOfCourses - 1; i++) {
+    for (let i = 0; i < amountOfCourses; i++) {
         let tableRow = document.createElement("tr")
         tableBody.appendChild(tableRow);
     }
@@ -61,9 +72,6 @@ function loadPageWithInformation(studentObject) {
     for (let i = 0; i < tableBodyRows.length; i++) {
         for (let j = 0; j < 3; j++) {
             let tableBodyRowData = document.createElement("td");
-            if (i == 0 && j == 2) {
-                continue;
-            }
             tableBodyRows[i].appendChild(tableBodyRowData);
         }
     }
