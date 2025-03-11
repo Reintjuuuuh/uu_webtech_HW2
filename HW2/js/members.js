@@ -83,6 +83,8 @@ function loadPageWithInformation(studentObject) {
         tableBodyRowTexts[2].appendChild(newText(studentObject.courses[i].description));
     }
 
+    // Start of option lists
+    // Font menu
     const fontMenu = document.createElement("select");  
     const fontList = ["italic bold 40px arial,serif", "italic bold 20px arial,serif"]
     for (let i = 0; i < fontList.length; i++){
@@ -100,11 +102,6 @@ function loadPageWithInformation(studentObject) {
         const listNode = document.createElement("option"); 
         listNode.textContent = sectionList[i].id; 
         
-        listNode.addEventListener("click", function() {
-            const article = document.getElementById(sectionList[i].id);
-            article.style.fontSize = "24px";
-            article.style.font = fontMenu.value;
-        })
 
         menu.appendChild(listNode);
     }
@@ -112,6 +109,14 @@ function loadPageWithInformation(studentObject) {
     footer.appendChild(fontMenu);
     fontButton = document.createElement("button");
     fontButtonText = document.createTextNode("Change appearance!");
+    
+    fontButton.addEventListener("click", function() {
+        console.log(`test: ${fontMenu.value}, ${menu.value}`);
+        const article = document.getElementById(menu.value);
+        article.style.fontSize = "24px";
+        article.style.font = fontMenu.value;
+    })
+    
     fontButton.appendChild(fontButtonText);
     footer.appendChild(fontButton);
     document.body.appendChild(footer);
