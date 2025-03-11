@@ -30,6 +30,16 @@ function loadPageWithInformation(studentObject) {
     //Put elements in
     header.appendChild(newText(`About ${studentObject.firstName} ${studentObject.lastName}`));
 
+    const menu = document.createElement("menu");  
+    const articleList = document.querySelectorAll("p");
+    for (let i = 0; i < articleList.length; i++)
+    {
+        const listNode = document.createElement("li"); 
+        listNode.textContent = articleList[i].textContent; 
+        menu.appendChild(listNode);
+    }
+    document.body.appendChild(menu);
+
     studentSection.appendChild(h1);
     let studentSectionTitle = studentSection.getElementsByTagName("h1")[0];
     studentSectionTitle.appendChild(newText(`Who is ${studentObject.firstName} ${studentObject.lastName}?`))
