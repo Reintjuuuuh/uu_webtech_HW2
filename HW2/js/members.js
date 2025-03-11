@@ -40,15 +40,39 @@ function loadPageWithInformation(studentObject) {
     studentSectionParagraph.appendChild(newText(studentObject.lastName));
 
 
-    const menu = document.createElement("menu");  
-    const articleList = document.querySelectorAll("p");
-    for (let i = 0; i < articleList.length; i++)
+
+    const fontMenu = document.createElement("select");  
+    const fontList = ["italic bold 40px arial,serif", "italic bold 20px arial,serif"]
+    for (let i = 0; i < fontList.length; i++){
+        const fontListNode = document.createElement("option")
+        fontListNode.textContent = fontList[i];
+        fontMenu.appendChild(fontListNode);
+    }
+
+    // Start the menu list
+    const footer = document.createElement("footer");
+    const menu = document.createElement("select");  
+    const sectionList = document.querySelectorAll("section");
+    for (let i = 0; i < sectionList.length; i++)
     {
-        const listNode = document.createElement("li"); 
-        listNode.textContent = articleList[i].textContent; 
+        const listNode = document.createElement("option"); 
+        listNode.textContent = sectionList[i].id; 
+        
+        listNode.addEventListener("click", function() {
+            const article = document.getElementById(sectionList[i].id);
+            article.style.fontSize = "24px";
+            article.style.font = fontMenu.value;
+        })
+
         menu.appendChild(listNode);
     }
-    document.body.appendChild(menu);
+    footer.appendChild(menu);
+    footer.appendChild(fontMenu);
+    fontButton = document.createElement("button");
+    fontButtonText = document.createTextNode("Change appearance!");
+    fontButton.appendChild(fontButtonText);
+    footer.appendChild(fontButton);
+    document.body.appendChild(footer);
 
 }
 
