@@ -82,6 +82,39 @@ function loadPageWithInformation(studentObject) {
         tableBodyRowTexts[1].appendChild(newText(studentObject.courses[i].teacher.firstName + " " + studentObject.courses[i].teacher.lastName));
         tableBodyRowTexts[2].appendChild(newText(studentObject.courses[i].description));
     }
+
+    const fontMenu = document.createElement("select");  
+    const fontList = ["italic bold 40px arial,serif", "italic bold 20px arial,serif"]
+    for (let i = 0; i < fontList.length; i++){
+        const fontListNode = document.createElement("option")
+        fontListNode.textContent = fontList[i];
+        fontMenu.appendChild(fontListNode);
+    }
+
+    // Start the menu list
+    const footer = document.createElement("footer");
+    const menu = document.createElement("select");  
+    const sectionList = document.querySelectorAll("section");
+    for (let i = 0; i < sectionList.length; i++)
+    {
+        const listNode = document.createElement("option"); 
+        listNode.textContent = sectionList[i].id; 
+        
+        listNode.addEventListener("click", function() {
+            const article = document.getElementById(sectionList[i].id);
+            article.style.fontSize = "24px";
+            article.style.font = fontMenu.value;
+        })
+
+        menu.appendChild(listNode);
+    }
+    footer.appendChild(menu);
+    footer.appendChild(fontMenu);
+    fontButton = document.createElement("button");
+    fontButtonText = document.createTextNode("Change appearance!");
+    fontButton.appendChild(fontButtonText);
+    footer.appendChild(fontButton);
+    document.body.appendChild(footer);
 }
 
 //Creates a new text node
