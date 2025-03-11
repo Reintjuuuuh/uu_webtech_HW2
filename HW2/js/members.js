@@ -38,6 +38,18 @@ function loadPageWithInformation(studentObject) {
     let studentSectionParagraph = studentSection.getElementsByTagName("p")[0];
     studentSectionParagraph.appendChild(newText(studentObject.firstName));
     studentSectionParagraph.appendChild(newText(studentObject.lastName));
+
+
+    const menu = document.createElement("menu");  
+    const articleList = document.querySelectorAll("p");
+    for (let i = 0; i < articleList.length; i++)
+    {
+        const listNode = document.createElement("li"); 
+        listNode.textContent = articleList[i].textContent; 
+        menu.appendChild(listNode);
+    }
+    document.body.appendChild(menu);
+
 }
 
 //Creates a new text node
