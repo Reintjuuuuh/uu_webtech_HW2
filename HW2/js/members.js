@@ -86,35 +86,73 @@ function loadPageWithInformation(studentObject) {
     // Start of option lists
     // Font menu
     const fontMenu = document.createElement("select");  
-    const fontList = ["italic bold 40px arial,serif", "italic bold 20px arial,serif"]
+    const fontList = ["Arial", "Verdana", "Tahoma", "Trebuchet MS",  "Times New Roman",  "Georgia",  "Garamond" ]
     for (let i = 0; i < fontList.length; i++){
         const fontListNode = document.createElement("option")
         fontListNode.textContent = fontList[i];
         fontMenu.appendChild(fontListNode);
     }
 
+    // Size 
+    const sizeCheckbox = document.createElement("input");
+    sizeCheckbox.type = "number";
+    sizeCheckbox.id = "sizeCheckbox"
+
+    const sizeLabel = document.createElement("label");
+    sizeLabel.textContent = " size (px) |";
+    sizeLabel.htmlFor = "sizeCheckbox";
+
+    // Italic
+    const italicCheckbox = document.createElement("input");
+    italicCheckbox.type = "checkbox";
+    italicCheckbox.id = "italicCheckbox"
+
+    const italicLabel = document.createElement("label");
+    italicLabel.textContent = " Italic |";
+    italicLabel.htmlFor = "italicCheckbox";
+    
+    // Bold
+    const boldCheckbox = document.createElement("input");
+    boldCheckbox.type = "checkbox";
+    boldCheckbox.id = "boldCheckbox"
+
+    const boldLabel = document.createElement("label");
+    boldLabel.textContent = " Bold |";
+    boldLabel.htmlFor = "boldCheckbox";
+    
     // Start the menu list
     const footer = document.createElement("footer");
     const menu = document.createElement("select");  
     const sectionList = document.querySelectorAll("section");
+    
     for (let i = 0; i < sectionList.length; i++)
     {
         const listNode = document.createElement("option"); 
         listNode.textContent = sectionList[i].id; 
-        
-
         menu.appendChild(listNode);
     }
+   
+
     footer.appendChild(menu);
     footer.appendChild(fontMenu);
+    footer.appendChild(sizeCheckbox);
+    footer.appendChild(sizeLabel);
+    footer.appendChild(italicCheckbox);
+    footer.appendChild(italicLabel);
+    footer.appendChild(boldCheckbox);
+    footer.appendChild(boldLabel);
+    
     fontButton = document.createElement("button");
     fontButtonText = document.createTextNode("Change appearance!");
-    
     fontButton.addEventListener("click", function() {
-        console.log(`test: ${fontMenu.value}, ${menu.value}`);
+        console.log(`test: ${fontMenu.value}, ${menu.value}, ${sizeCheckbox.value}, ${boldCheckbox.checked}`);
         const article = document.getElementById(menu.value);
-        article.style.fontSize = "24px";
-        article.style.font = fontMenu.value;
+        article.style.fontSize = `${sizeCheckbox.value}px`;
+        article.style.fontFamily = fontMenu.value;
+        article.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
+        article.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
+        console.log(article.style);
+        
     })
     
     fontButton.appendChild(fontButtonText);
