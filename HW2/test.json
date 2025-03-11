@@ -1,0 +1,27 @@
+{
+    "firstName": "John",
+    "lastName":  "Doe",
+    "age": 21,
+    "hobbies": [ "reading", "coding", "traveling" ],
+    "email": "john.doe@example.com",
+    "photo": "link/to/photo1.jpg",
+    "major": "Computer Science",
+    "courses": [
+        {
+            "title": "Introduction to Programming",
+            "teacher": {
+                "firstName": "Alice",
+                "lastName": "Smith"
+            },
+            "description": "A beginner's course in programming using Python."
+        },
+        {
+            "title": "Data Structures and Algorithms",
+            "teacher": {
+                "firstName": "Bob",
+                "lastName": "Johnson"
+            },
+            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
+        }
+    ]
+}
