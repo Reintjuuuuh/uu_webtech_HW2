@@ -31,6 +31,7 @@ article{
 section {
     border: 0.5vh solid black;
     flex-grow: 1;
+    align-content: center;
 }
 
 .title {
@@ -51,7 +52,12 @@ p {
 }
 
 table{
+    border: 2px solid black;
+    
+}
 
+tr, th, td {
+    border: 2px solid black;
 }
 
 #section-student{
