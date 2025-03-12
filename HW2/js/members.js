@@ -105,6 +105,7 @@ function loadPageWithInformation(studentObject) {
     const sizeCheckbox = document.createElement("input");
     sizeCheckbox.type = "number";
     sizeCheckbox.id = "sizeCheckbox"
+    sizeCheckbox.value = "16";
 
     const sizeLabel = document.createElement("label");
     sizeLabel.textContent = " size (px) |";
