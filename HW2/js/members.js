@@ -132,7 +132,16 @@ function loadPageWithInformation(studentObject) {
     const footer = document.createElement("footer");
     const menu = document.createElement("select");  
     const sectionList = document.querySelectorAll("section");
-    
+    const articleList = document.querySelectorAll("article");
+    const body = document.querySelector("body");
+
+    /*menu.addEventListener("change", function() {
+        const article = document.getElementById(menu.value);
+        fontMenu.value = window.getComputedStyle(article).fontFamily;
+        console.log("Article font: " + article.style.fontFamily);
+        console.log("Menu value: " + fontMenu.value);
+    })*/
+
     for (let i = 0; i < sectionList.length; i++)
     {
         const listNode = document.createElement("option"); 
@@ -167,6 +176,11 @@ function loadPageWithInformation(studentObject) {
         }
 
         article.style.fontSize = `${sizeCheckbox.value}px`;
+        if (sizeCheckbox.value <= 50) {
+            article.style.fontSize = `${sizeCheckbox.value}px`;
+        } else {
+            alert("font size may not be greater than 50");
+        }
         article.style.fontFamily = fontMenu.value;
         article.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
         article.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
