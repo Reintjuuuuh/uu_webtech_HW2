@@ -139,6 +139,10 @@ function loadPageWithInformation(studentObject) {
         listNode.textContent = sectionList[i].id; 
         menu.appendChild(listNode);
     }
+    const bodyElement = document.querySelectorAll("body");
+    listNode = document.createElement("option");
+    listNode.textContent = "body";
+    menu.appendChild(listNode);
 
     footer.appendChild(menu);
     footer.appendChild(fontMenu);
@@ -155,7 +159,13 @@ function loadPageWithInformation(studentObject) {
     fontButtonText = document.createTextNode("Change appearance!");
     fontButton.addEventListener("click", function() {
         console.log(`test: ${fontMenu.value}, ${menu.value}, ${sizeCheckbox.value}, ${boldCheckbox.checked}`);
-        const article = document.getElementById(menu.value);
+        let article = document.getElementById(menu.value);
+        // In the case of body
+        if (!article)
+        {
+            article = document.getElementsByTagName(menu.value)[0];
+        }
+
         article.style.fontSize = `${sizeCheckbox.value}px`;
         article.style.fontFamily = fontMenu.value;
         article.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
