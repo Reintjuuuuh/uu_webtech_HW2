@@ -139,7 +139,6 @@ function loadPageWithInformation(studentObject) {
         listNode.textContent = sectionList[i].id; 
         menu.appendChild(listNode);
     }
-   
 
     footer.appendChild(menu);
     footer.appendChild(fontMenu);
@@ -162,8 +161,7 @@ function loadPageWithInformation(studentObject) {
         article.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
         article.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
         article.style.color = colourCheckbox.value;
-        console.log(article.style);
-        
+        console.log(article.style);   
     })
     
     fontButton.appendChild(fontButtonText);

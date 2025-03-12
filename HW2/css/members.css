@@ -1,4 +1,6 @@
 ﻿body{
+    display: flex;
+    flex-direction: column;
     margin: 0px;
 }
 
@@ -9,21 +11,14 @@ header {
     margin: 0;
     text-align: center;
     height: 15vh;
-}
-
-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 5vh;
-    background-color: rgb(194, 207, 237);
-    margin: 0;
+    line-height: 13vh;
 }
 
 article{
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    flex: 1;
+    min-height: 80vh;
 }
 
 section {
@@ -60,17 +55,15 @@ p {
 table{
     border: 2px solid black;
     height: 10vh;
-    width: auto;
+    width: 100%
 }
 
 tr, th, td {
     border: 2px solid black;
 }
 
-#section-student{
-
-}
-
-#section-course{
-
+footer {
+    background-color: rgb(194, 207, 237);
+    flex: 1; 
+    min-height: 5vh;
 }
