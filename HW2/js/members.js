@@ -136,12 +136,12 @@ function loadPageWithInformation(studentObject) {
     const articleList = document.querySelectorAll("article");
     const body = document.querySelector("body");
 
-    /*menu.addEventListener("change", function() {
-        const article = document.getElementById(menu.value);
-        fontMenu.value = window.getComputedStyle(article).fontFamily;
-        console.log("Article font: " + article.style.fontFamily);
-        console.log("Menu value: " + fontMenu.value);
-    })*/
+    for (let i = 0; i < articleList.length; i++)
+    {
+        const listNode = document.createElement("option"); 
+        listNode.textContent = articleList[i].id; 
+        menu.appendChild(listNode);
+    }
 
     for (let i = 0; i < sectionList.length; i++)
     {
@@ -149,6 +149,7 @@ function loadPageWithInformation(studentObject) {
         listNode.textContent = sectionList[i].id; 
         menu.appendChild(listNode);
     }
+    // There is only one body
     const bodyElement = document.querySelectorAll("body");
     listNode = document.createElement("option");
     listNode.textContent = "body";
