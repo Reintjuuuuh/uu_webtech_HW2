@@ -39,7 +39,7 @@ function readJsonFile(file, functionWhenRead) {
             window.location.href = "members.html";
         }
         else {
-            alert("JSON file not in valid format");
+            //alert("JSON file not in valid format");
         }
     }
 
@@ -68,7 +68,7 @@ function verifyClass(jsonObject) {
     }
 
     catch {
-        alert("json is not of valid type");
+        //alert("json is not of valid type");
         return false;
     }
 }
@@ -80,8 +80,8 @@ function onRun() {
 class Person {
     #firstName; #lastName;
     constructor(firstName, lastName) {
-        this.#firstName = firstName; /*uses setter*/
-        this.#lastName = lastName; /*uses setter*/
+        this.firstName = firstName; /*uses setter*/
+        this.lastName = lastName; /*uses setter*/
     }
     
     get firstName() {
@@ -108,7 +108,7 @@ class Student extends Person {
         this.email = email; /*String*/
         this.photo = photo; /*String: link to a file with a photo*/
         this.major = major; /*String*/
-        this.courses = courses;//courses.map(x => new Course(x.title, x.teacher, x.description)); //TODOO::: zorg dat courses aangemaakt worden ipv in de setter gecheckt worden.
+        this.courses = courses;
     }
 
     get age() {
@@ -116,6 +116,7 @@ class Student extends Person {
     }
     set age(newAge) {
         if (newAge < 0 || newAge > 200) {
+            alert("Invalid age");
             throw new Error("Invalid age");
         }
         this.#age = newAge;
@@ -125,7 +126,12 @@ class Student extends Person {
         return this.#hobbies;
     }
     set hobbies(newHobbies) {
+        if (!Array.isArray(newHobbies)) {
+            alert("Hobbies must be an array");
+            throw new TypeError("Hobbies must be an array");
+        }
         if (!newHobbies.every(i => typeof i === "string")) {
+            alert("Not all hobbies are strings");
             throw new Error("Not all hobbies are strings");
         }
         this.#hobbies = newHobbies;
@@ -137,6 +143,7 @@ class Student extends Person {
     set email(newEmail) {
         //regex from https://stackoverflow.com/questions/46155/
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail.toLowerCase())) {
+            alert("Invalid email");
             throw new Error("Invalid email");
         }
         this.#email = newEmail;
@@ -147,6 +154,7 @@ class Student extends Person {
     }
     set photo(newPhoto) {
         if (!/^https?:\/\/.*\.(jpeg|jpg|gif|png)$/i.test(newPhoto)) {
+            alert("Invalid image link");
             throw new Error("Invalid image link");
         }
         this.#photo = newPhoto;
@@ -164,16 +172,17 @@ class Student extends Person {
     }
     set courses(newCourses) {
         if (!Array.isArray(newCourses)) {
+            alert("Courses must be an array");
             throw new Error("Courses must be an array");
         }
         
         this.#courses = newCourses.map(course => {
             if (typeof course !== "object" || !course.title || !course.teacher || !course.description) {
+                alert("Invalid course object");
                 throw new Error("Invalid course object");
             }
-            else {
-                course = new Course(course.title, course.teacher, course.description)
-            }
+            
+            return new Course(course.title, course.teacher, course.description);
         });
     }
 }   
@@ -198,10 +207,11 @@ class Course {
     }
     set teacher(newTeacher) {
         if (typeof newTeacher !== "object" || !newTeacher.firstName || !newTeacher.lastName) {
+            alert("Invalid teacher object");
             throw new Error("Invalid teacher object");
         }
 
-        this.#teacher = new Person(teacher.firstName, teacher.lastName); 
+        this.#teacher = new Person(newTeacher.firstName, newTeacher.lastName); 
     };
 
     get description() {
@@ -213,21 +223,29 @@ class Course {
     }
 
 
-function validateString(name, field) {
-    if (typeof name !== 'string') {
+function validateString(text, field) {
+    if (typeof text !== 'string') {
+        alert(`${field} must be a string`);
         throw new Error(`${field} must be a string`);
     }
 
-    name = name.trim(); // Trim BEFORE validation for empty string
+    text = text.trim(); // Trim BEFORE validation for empty string
     
-    if (!name) {
+    if (!text) {
+        alert(`${field} cannot be empty`);
         throw new Error(`${field} cannot be empty`);
     }
-    if (!/^[A-Za-z\s]+$/.test(name)) {
+    if ((field === "firstName" || field === "lastName") //allows only letters
+        && !/^[A-Za-z\s]+$/.test(text)) {
+            alert(`Formatting error in ${field}. ${field} can only include letters.`);
         throw new Error(`Formatting error in ${field}. ${field} can only include letters.`);
     }
+    else if (!/^[\p{L}\p{M}\p{N}\p{P}\p{Z}\p{S}]+$/u.test(text)) { //allows basically all text.
+        alert(`Formatting error in ${field}.`);
+        throw new Error(`Formatting error in ${field}.`);
+    }
 
-    return String(name[0]).toUpperCase() + String(name).slice(1); //capitalize first letter
+    return String(text[0]).toUpperCase() + String(text).slice(1); //capitalize first letter
 }
 
 
