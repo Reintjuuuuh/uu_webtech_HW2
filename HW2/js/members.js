@@ -175,7 +175,6 @@ function loadPageWithInformation(studentObject) {
             article = document.getElementsByTagName(menu.value)[0];
         }
 
-        article.style.fontSize = `${sizeCheckbox.value}px`;
         if (sizeCheckbox.value <= 50) {
             article.style.fontSize = `${sizeCheckbox.value}px`;
         } else {
