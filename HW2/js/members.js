@@ -204,11 +204,7 @@ function changeAppearance(event){
   const sizeCheckbox = document.getElementById("sizeCheckbox");
   const italicCheckbox = document.getElementById("italicCheckbox");
   const boldCheckbox = document.getElementById("boldCheckbox");
-
-  let targetObject = document.getElementById(event.target.id);
-  if (!targetObject) {
-      targetObject = document.getElementsByTagName(event.target.tagName)[0];
-  }
+  let targetObject = event.target;
 
   if (sizeCheckbox.value <= 50) {
       targetObject.style.fontSize = `${sizeCheckbox.value}px`;
