@@ -1,6 +1,9 @@
 //Adds all event listeners
 function addAllEventListeners() {
-    
+    document.body.addEventListener("click", (event) => changeAppearance(event));
+      //    {
+      //        alert(You clicked on: ${event.target.tagName} (ID: ${event.target.id || "no ID"}));
+      //    });
 }
 
 //Get json string from storage and return as object
@@ -86,6 +89,7 @@ function loadPageWithInformation(studentObject) {
     // Start of option lists
     // Font menu
     const fontMenu = document.createElement("select");  
+    fontMenu.id = "fontMenu";
     const fontList = ["Arial", "Verdana", "Tahoma", "Trebuchet MS",  "Times New Roman",  "Georgia",  "Garamond" ]
     for (let i = 0; i < fontList.length; i++){
         const fontListNode = document.createElement("option")
@@ -132,6 +136,7 @@ function loadPageWithInformation(studentObject) {
     // Start the menu list
     const footer = document.createElement("footer");
     const menu = document.createElement("select");  
+    menu.id = "selectedMenu";
     const sectionList = document.querySelectorAll("section");
     const articleList = document.querySelectorAll("article");
     const body = document.querySelector("body");
@@ -194,6 +199,28 @@ function loadPageWithInformation(studentObject) {
     document.body.appendChild(footer);
 }
 
+function changeAppearance(event){
+  const colourCheckbox = document.getElementById("colourCheckbox");
+  const sizeCheckbox = document.getElementById("sizeCheckbox");
+  const italicCheckbox = document.getElementById("italicCheckbox");
+  const boldCheckbox = document.getElementById("boldCheckbox");
+
+  let targetObject = document.getElementById(event.target.id);
+  if (!targetObject) {
+      targetObject = document.getElementsByTagName(event.target.tagName)[0];
+  }
+
+  if (sizeCheckbox.value <= 50) {
+      targetObject.style.fontSize = `${sizeCheckbox.value}px`;
+  } else {
+      alert("Font size may not be greater than 50");
+  }
+  targetObject.style.fontFamily = fontMenu.value;
+  targetObject.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
+  targetObject.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
+  targetObject.style.color = colourCheckbox.value;
+  console.log(targetObject.style);
+}
 //Creates a new text node
 function newText(text) {
     return document.createTextNode(text);
