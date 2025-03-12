@@ -38,9 +38,6 @@ function readJsonFile(file, functionWhenRead) {
             functionWhenRead(jsonString);
             window.location.href = "members.html";
         }
-        else {
-            //alert("JSON file not in valid format");
-        }
     }
 
     reader.onerror = () => {
@@ -68,7 +65,6 @@ function verifyClass(jsonObject) {
     }
 
     catch {
-        //alert("json is not of valid type");
         return false;
     }
 }
