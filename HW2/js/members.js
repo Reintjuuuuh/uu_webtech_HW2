@@ -200,12 +200,17 @@ function loadPageWithInformation(studentObject) {
 }
 
 function changeAppearance(event){
+  // The buttons are in the footer, those elements shouldn't be changed for every click.
+  if (document.getElementsByTagName("footer")[0].contains(event.target)){
+    return;
+  }
   const colourCheckbox = document.getElementById("colourCheckbox");
   const sizeCheckbox = document.getElementById("sizeCheckbox");
   const italicCheckbox = document.getElementById("italicCheckbox");
   const boldCheckbox = document.getElementById("boldCheckbox");
   let targetObject = event.target;
 
+  console.log(event);
   if (sizeCheckbox.value <= 50) {
       targetObject.style.fontSize = `${sizeCheckbox.value}px`;
   } else {
