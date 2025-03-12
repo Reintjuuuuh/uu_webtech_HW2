@@ -4,20 +4,12 @@
 
 header {
     background-color: rgb(157, 168, 196);
-    font-size: clamp(30px, 3vw, 140px);
+    font-size: clamp(40px, 3vw, 140px);
     font-family: "Lucida Calligraphy";
     margin: 0px;
     text-align: center;
-}
-
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    background-color: rgb(194, 207, 237);
-    margin: 0;
+    height: 10vh;
+    line-height: 10vh;
 }
 
 p {
@@ -36,7 +28,6 @@ p {
 }
 
 h1.title {
-    font-size: clamp(20px, 2vw, 70px);
     margin: 10px;
 }
 
@@ -45,9 +36,22 @@ h1.title {
     justify-content: center;
     align-items: center;
     height: 10vh;
+    margin: 40px;
 }
 
 #file-loader__input {
     padding: 20px;
     border: 2px solid black;
+}
+
+@media (min-width: 600px) {
+    input[type="file"] {
+        transform: scale(1.5);
+    }
+}
+
+@media (max-width: 600px){
+    input[type="file"] {
+        transform: scale(1.2);
+    }
 }

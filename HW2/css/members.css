@@ -1,4 +1,6 @@
 ﻿body{
+    display: flex;
+    flex-direction: column;
     margin: 0px;
 }
 
@@ -9,35 +11,35 @@ header {
     margin: 0;
     text-align: center;
     height: 15vh;
+    line-height: 13vh;
 }
-
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 5vh;
-    background-color: rgb(194, 207, 237);
-    margin: 0;
-}
-
 
 article{
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    flex: 1;
+    min-height: 80vh;
 }
 
 section {
     border: 0.5vh solid black;
     flex-grow: 1;
+    text-align: center;
 }
 
 .title {
     background-color: inherit;
     text-align: center;
-    font-size: clamp(30px, 2.2vw, 90px);
+    font-size: clamp(60px, 3vw, 120px);
     height: 2vh;
+    margin: 3vh;
+    position: absolute;
+}
+/*
+h1 {
+    background-color: inherit;
+    text-align: center;
+    font-size: clamp(30px, 2.2vw, 90px);
     margin: 3vh;
 }
 
@@ -46,18 +48,22 @@ p {
     width: 100%;
     color: black;
     font-family: "Gadugi";
-    font-size: clamp(20px, 2vw, 80px);
+    font-size: clamp(10px, 1.5vw, 60px);
     margin: 3vh 0px;
 }
-
+*/
 table{
-
+    border: 2px solid black;
+    height: 10vh;
+    width: 100%
 }
 
-#section-student{
-
+tr, th, td {
+    border: 2px solid black;
 }
 
-#section-course{
-
+footer {
+    background-color: rgb(194, 207, 237);
+    flex: 1; 
+    min-height: 5vh;
 }

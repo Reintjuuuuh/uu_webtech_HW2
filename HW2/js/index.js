@@ -10,7 +10,7 @@ function addAllEventListeners() {
 function fileSelection(event) {
     let file = event.target.files[0];
 
-    //Validate the file
+    //Validates the file
     if (!file) {
         alert("No file selected, please try again!");
         return;
@@ -22,7 +22,7 @@ function fileSelection(event) {
         return;
     }
 
-    //Read the file
+    //Reads the file
     readJsonFile(file, x => sessionStorage.setItem("student", x));
 }
 
