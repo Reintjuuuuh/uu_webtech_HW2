@@ -16,68 +16,28 @@
             "description": "A beginner's course in programming using Python."
         },
         {
-            "title": "Data Structures and Algorithms",
-            "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
-            },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
-        },
-        {
-            "title": "Web Development with React",
+            "title": "Introduction to Programming",
             "teacher": {
                 "firstName": "Alice",
                 "lastName": "Smith"
             },
-            "description": "Master the fundamentals of React and build modern web applications with hooks and components."
+            "description": "A beginner's course in programming using Python."
         },
         {
-            "title": "Machine Learning Basics",
+            "title": "Introduction to Programming",
             "teacher": {
-                "firstName": "David",
-                "lastName": "Lee"
+                "firstName": "Alice",
+                "lastName": "Smith"
             },
-            "description": "An introduction to machine learning concepts, including supervised and unsupervised learning."
+            "description": "A beginner's course in programming using Python."
         },
         {
-            "title": "Game Development with Unity",
+            "title": "Introduction to Programming",
             "teacher": {
-                "firstName": "Emma",
-                "lastName": "Brown"
+                "firstName": "Alice",
+                "lastName": "Smith"
             },
-            "description": "Learn how to create 2D and 3D games using the Unity engine and C# programming."
-        },
-        {
-            "title": "Cybersecurity Fundamentals",
-            "teacher": {
-                "firstName": "Michael",
-                "lastName": "Wilson"
-            },
-            "description": "Understand key cybersecurity principles, including network security and encryption."
-        },
-        {
-            "title": "UI/UX Design for Beginners",
-            "teacher": {
-                "firstName": "Sophia",
-                "lastName": "Davis"
-            },
-            "description": "Explore the fundamentals of user interface and user experience design with tools like Figma."
-        },
-        {
-            "title": "UI/UX Design for Beginners",
-            "teacher": {
-                "firstName": "Sophia",
-                "lastName": "Davis"
-            },
-            "description": "Explore the fundamentals of user interface and user experience design with tools like Figma."
-        },
-        {
-            "title": "UI/UX Design for Beginners",
-            "teacher": {
-                "firstName": "Sophia",
-                "lastName": "Davis"
-            },
-            "description": "Explore the fundamentals of user interface and user experience design with tools like Figma."
+            "description": "A beginner's course in programming using Python."
         }
     ]
 }

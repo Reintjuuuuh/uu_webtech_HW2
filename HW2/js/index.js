@@ -4,7 +4,7 @@ const fileLoaderInput = document.getElementById("file-loader__input");
 //Add all eventlisteners
 function addAllEventListeners() {
     fileLoaderInput.addEventListener("change", fileSelection);
-
+    fileLoaderInput.addEventListener("click", resetFileLoaderValue);
 }
 
 function fileSelection(event) {
@@ -27,6 +27,10 @@ function fileSelection(event) {
         sessionStorage.setItem("student", jsonData);
         window.location.href = "members.html";
     });
+}
+
+function resetFileLoaderValue() {
+    fileLoaderInput.value = '';
 }
 
 function readJsonFile(file, functionWhenRead) {
