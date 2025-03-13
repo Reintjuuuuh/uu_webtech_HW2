@@ -23,7 +23,10 @@ function fileSelection(event) {
     }
 
     //Reads the file
-    readJsonFile(file, x => sessionStorage.setItem("student", x));
+    readJsonFile(file, jsonData => {
+        sessionStorage.setItem("student", jsonData);
+        window.location.href = "members.html";
+    });
 }
 
 function readJsonFile(file, functionWhenRead) {
@@ -31,13 +34,22 @@ function readJsonFile(file, functionWhenRead) {
 
     //When loaded, parse json and execute given function
     reader.onload = () => {
-        let jsonString = reader.result;
-        console.log(jsonString);
-        let jsonObject = JSON.parse(jsonString);
-        if (verifyClass(jsonObject)) {
-            functionWhenRead(jsonString);
-            window.location.href = "members.html";
+        try {
+            let jsonObject = JSON.parse(reader.result);
+            let verifiedObject = verifyClass(jsonObject);
+            if (verifiedObject) {
+                verifiedObject = verifiedObject.toJSON();
+                verifiedObject = JSON.stringify(verifiedObject);
+                functionWhenRead(verifiedObject);
+            }
+            else {
+                alert("Invalid JSON structure");
+            }
         }
+        catch (error) {
+            alert("Error parsing JSON file");
+        }
+        
     }
 
     reader.onerror = () => {
@@ -48,10 +60,8 @@ function readJsonFile(file, functionWhenRead) {
 }
 
 function verifyClass(jsonObject) {
-    const requiredClass = Student;
-
     try {
-        verifiedObject = new requiredClass(
+        let verifiedObject = new Student(
             jsonObject.firstName,
             jsonObject.lastName,
             jsonObject.age,
@@ -61,11 +71,12 @@ function verifyClass(jsonObject) {
             jsonObject.major,
             jsonObject.courses
         );
-        return true;
+        //werkt, er is een verifiedobject
+        return verifiedObject;
     }
-
-    catch {
-        return false;
+    catch (error) {
+        console.error("Validation error:", error);
+        return null;
     }
 }
 
@@ -92,6 +103,13 @@ class Person {
     }
     set lastName(newLastName) {
         this.#lastName = validateString(newLastName, "lastName");
+    }
+
+    toJSON() {
+        return {
+            firstName: this.firstName,
+            lastName: this.lastName
+        };
     }
 }
 
@@ -130,7 +148,9 @@ class Student extends Person {
             alert("Not all hobbies are strings");
             throw new Error("Not all hobbies are strings");
         }
-        this.#hobbies = newHobbies;
+        this.#hobbies = newHobbies.map(hobby => {
+            return validateString(hobby, "Hobby");
+        });
     }
 
     get email() {
@@ -181,6 +201,19 @@ class Student extends Person {
             return new Course(course.title, course.teacher, course.description);
         });
     }
+
+    toJSON() {
+        return {
+            firstName: this.firstName,
+            lastName: this.lastName,
+            age: this.age,
+            hobbies: this.hobbies,
+            email: this.email,
+            photo: this.photo,
+            major: this.major,
+            courses: this.courses.map(course => course.toJSON()) // Convert courses to JSON
+        };
+    }
 }   
 
 class Course {
@@ -216,7 +249,15 @@ class Course {
     set description(newDescription) {
         this.#description = validateString(newDescription, "description");;
     }
+
+    toJSON() {
+        return {
+            title: this.title,
+            teacher: this.teacher.toJSON(), // Convert teacher to JSON
+            description: this.description
+        };
     }
+}
 
 
 function validateString(text, field) {
@@ -233,12 +274,16 @@ function validateString(text, field) {
     }
     if ((field === "firstName" || field === "lastName") //allows only letters
         && !/^[A-Za-z\s]+$/.test(text)) {
-            alert(`Formatting error in ${field}. ${field} can only include letters.`);
+        alert(`Formatting error in ${field}. ${field} can only include letters.`);
         throw new Error(`Formatting error in ${field}. ${field} can only include letters.`);
     }
     else if (!/^[\p{L}\p{M}\p{N}\p{P}\p{Z}\p{S}]+$/u.test(text)) { //allows basically all text.
         alert(`Formatting error in ${field}.`);
         throw new Error(`Formatting error in ${field}.`);
+    }
+
+    if (field === "Hobby") {
+        return ' ' + String(text[0]).toUpperCase() + String(text).slice(1); //for spaces in the hobby list. Now it will look like "Reading, Hiking" instead of "Reading,Hiking"
     }
 
     return String(text[0]).toUpperCase() + String(text).slice(1); //capitalize first letter

@@ -27,10 +27,15 @@ function loadPageWithInformation(studentObject) {
     let studentSectionTitle = studentSection.querySelector("h1");
     studentSectionTitle.appendChild(newText(`Who is ${studentObject.firstName} ${studentObject.lastName}?`))
 
-    for (let i = 0; i < 5; i++) {
+    var img = document.createElement("img");
+    img.src = studentObject.photo;
+    studentSection.appendChild(img);
+
+    for (let i = 1; i < 6; i++) {
         let paragraphEl = document.createElement("p");
         studentSection.appendChild(paragraphEl);
     }
+
     let studentSectionParagraph = studentSection.getElementsByTagName("p");
 
     studentSectionParagraph[0].appendChild(newText(`Name: ${studentObject.firstName} ${studentObject.lastName}`));
@@ -68,49 +73,6 @@ function loadPageWithInformation(studentObject) {
             
         }
     }
-
-
-    /*//Creating course table
-    courseSection.appendChild(tableEl);
-    let table = courseSection.getElementsByTagName("table")[0];
-    //Creating the head
-    let tableHeadEl = document.createElement("thead")
-    table.appendChild(tableHeadEl);
-    let tableHead = table.getElementsByTagName("thead")[0];
-    let tableRow = document.createElement("tr")
-    tableHead.appendChild(tableRow);
-    let courseTableHeadRow = tableHead.getElementsByTagName("tr")[0];
-    for (let i = 0; i < 3; i++) {
-        let tableHeadRowText = document.createElement("th");
-        courseTableHeadRow.appendChild(tableHeadRowText);
-    }
-    let courseTableHeadRowElements = courseTableHeadRow.getElementsByTagName("th");
-    courseTableHeadRowElements[0].appendChild(newText("Title"));
-    courseTableHeadRowElements[1].appendChild(newText("Teacher"));
-    courseTableHeadRowElements[2].appendChild(newText("Description"));
-
-    //Creating the body
-    let tableBodyEl = document.createElement("tbody")
-    table.appendChild(tableBodyEl);
-    tableBody = table.getElementsByTagName("tbody")[0];
-    for (let i = 0; i < amountOfCourses; i++) {
-        let tableRow = document.createElement("tr")
-        tableBody.appendChild(tableRow);
-    }
-    let tableBodyRows = tableBody.getElementsByTagName("tr");
-    for (let i = 0; i < tableBodyRows.length; i++) {
-        for (let j = 0; j < 3; j++) {
-            let tableBodyRowData = document.createElement("td");
-            tableBodyRows[i].appendChild(tableBodyRowData);
-        }
-    }
-    //Filling in the values of the courses
-    for (let i = 0; i < tableBodyRows.length; i++) {
-        let tableBodyRowTexts = tableBodyRows[i].getElementsByTagName("td");
-        tableBodyRowTexts[0].appendChild(newText(studentObject.courses[i].title));
-        tableBodyRowTexts[1].appendChild(newText(studentObject.courses[i].teacher.firstName + " " + studentObject.courses[i].teacher.lastName));
-        tableBodyRowTexts[2].appendChild(newText(studentObject.courses[i].description));
-    }*/
 
     // Start of option lists
     // Font menu

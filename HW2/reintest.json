@@ -1,11 +1,11 @@
 
       {
-        "firstName": "John",
+        "firstName": "john",
         "lastName": "Doe",
         "age": 22,
         "hobbies": ["Reading", "Hiking"],
         "email": "john.doe@example.com",
-        "photo": "https://www.mail-signatures.com/wp-content/uploads/2019/02/How-to-find-direct-link-to-image_Blog-Picture.png",
+        "photo": "https://www.zeldadungeon.net/wiki/images/thumb/c/ce/Link_-_TotK_art_02_alt.png/400px-Link_-_TotK_art_02_alt.png",
         "major": "Computer Science",
         "courses": [
           {

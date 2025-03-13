@@ -1,5 +1,5 @@
 {
-    "firstName": "John",
+    "firstName": "john",
     "lastName":  "Doe",
     "age": 21,
     "hobbies": [ "reading", "coding", "traveling" ],
