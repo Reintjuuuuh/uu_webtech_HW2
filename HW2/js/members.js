@@ -15,21 +15,16 @@ function getObjectFromStorage(key) {
 
 function loadPageWithInformation(studentObject) {
     //Refrence to elements we need
-    const header = document.getElementsByTagName("header")[0];
+    const header = document.querySelector("header");
     const studentSection = document.getElementById("section-student");
     const courseSection = document.getElementById("section-course");
     const amountOfCourses = studentObject.courses.length;
 
-    //Create all elements that only apear once
-    let h1El = document.createElement("h1");
-    let h2El = document.createElement("h2");
-    let tableEl = document.createElement("table");
-
-
     //Put elements of studentsection in
     header.appendChild(newText(`About ${studentObject.firstName} ${studentObject.lastName}`));
+    const h1El = document.createElement("h1"); 
     studentSection.appendChild(h1El);
-    let studentSectionTitle = studentSection.getElementsByTagName("h1")[0];
+    let studentSectionTitle = studentSection.querySelector("h1");
     studentSectionTitle.appendChild(newText(`Who is ${studentObject.firstName} ${studentObject.lastName}?`))
 
     for (let i = 0; i < 5; i++) {
@@ -44,8 +39,38 @@ function loadPageWithInformation(studentObject) {
     studentSectionParagraph[3].appendChild(newText(`Email: ${studentObject.email}`));
     studentSectionParagraph[4].appendChild(newText(`Major: ${studentObject.major}`));
 
+    //Insert title
+    const article = document.querySelector("article");
+    const h2El = document.createElement("h2");
+    h2El.appendChild(newText("Courses"));
+    article.insertBefore(h2El, courseSection);
+    //Add a list of courses
+    let amountOfColums = 4;
+    if (window.innerWidth < 600) {
+        amountOfColums = 2;
+    } 
 
-    //Creating course table
+    for (let i = 0; i < amountOfColums; i++) {
+        const unorderdListEl = document.createElement("ul");
+        courseSection.appendChild(unorderdListEl);
+        const unorderdList = document.querySelectorAll("ul")[i];
+        for (let j = 0; j < amountOfCourses / amountOfColums; j++) {
+            let index = j + Math.ceil(amountOfCourses * (i / amountOfColums));
+            if (index > amountOfCourses - 1) {
+                continue;
+            }
+            const listEl = document.createElement("li");
+            unorderdList.appendChild(listEl);
+            const currentList = unorderdList.querySelectorAll("li")[j];
+            currentList.appendChild((newText(studentObject.courses[index].title)));
+            //Adding the tooltips
+            currentList.title = `Teacher: ${studentObject.courses[index].teacher.firstName} ${studentObject.courses[index].teacher.firstName} \n Description: ${studentObject.courses[index].description}`;
+            
+        }
+    }
+
+
+    /*//Creating course table
     courseSection.appendChild(tableEl);
     let table = courseSection.getElementsByTagName("table")[0];
     //Creating the head
@@ -85,7 +110,7 @@ function loadPageWithInformation(studentObject) {
         tableBodyRowTexts[0].appendChild(newText(studentObject.courses[i].title));
         tableBodyRowTexts[1].appendChild(newText(studentObject.courses[i].teacher.firstName + " " + studentObject.courses[i].teacher.lastName));
         tableBodyRowTexts[2].appendChild(newText(studentObject.courses[i].description));
-    }
+    }*/
 
     // Start of option lists
     // Font menu

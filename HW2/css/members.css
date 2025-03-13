@@ -27,43 +27,32 @@ section {
     text-align: center;
 }
 
-/*.title {
-    background-color: inherit;
-    text-align: center;
-    font-size: clamp(60px, 3vw, 120px);
-    height: 2vh;
-    margin: 3vh;
-    position: absolute;
-}*/
-/*
-h1 {
-    background-color: inherit;
-    text-align: center;
-    font-size: clamp(30px, 2.2vw, 90px);
-    margin: 3vh;
+#section-course{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; 
+    text-align: unset;
+    align-items: center;
 }
 
-p {
-    text-align: center;
-    width: 100%;
-    color: black;
-    font-family: "Gadugi";
-    font-size: clamp(10px, 1.5vw, 60px);
-    margin: 3vh 0px;
-}
-*/
-table{
-    border: 2px solid black;
-    height: 10vh;
-    width: 100%
+ul {
+    list-style-position: inside;
 }
 
-tr, th, td {
-    border: 2px solid black;
+li{
+    margin: 10px 0px;
 }
 
 footer {
     background-color: rgb(194, 207, 237);
     flex: 1; 
     min-height: 5vh;
+}
+
+h1, h2{
+    font-size: 25px;
+}
+
+h2{
+    text-align: center;
 }

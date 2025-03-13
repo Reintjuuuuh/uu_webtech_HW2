@@ -24,181 +24,60 @@
             "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
         },
         {
-            "title": "Introduction to Programming",
+            "title": "Web Development with React",
             "teacher": {
                 "firstName": "Alice",
                 "lastName": "Smith"
             },
-            "description": "A beginner's course in programming using Python."
+            "description": "Master the fundamentals of React and build modern web applications with hooks and components."
         },
         {
-            "title": "Data Structures and Algorithms",
+            "title": "Machine Learning Basics",
             "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
+                "firstName": "David",
+                "lastName": "Lee"
             },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
+            "description": "An introduction to machine learning concepts, including supervised and unsupervised learning."
         },
         {
-            "title": "Introduction to Programming",
+            "title": "Game Development with Unity",
             "teacher": {
-                "firstName": "Alice",
-                "lastName": "Smith"
+                "firstName": "Emma",
+                "lastName": "Brown"
             },
-            "description": "A beginner's course in programming using Python."
+            "description": "Learn how to create 2D and 3D games using the Unity engine and C# programming."
         },
         {
-            "title": "Data Structures and Algorithms",
+            "title": "Cybersecurity Fundamentals",
             "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
+                "firstName": "Michael",
+                "lastName": "Wilson"
             },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
+            "description": "Understand key cybersecurity principles, including network security and encryption."
         },
         {
-            "title": "Introduction to Programming",
+            "title": "UI/UX Design for Beginners",
             "teacher": {
-                "firstName": "Alice",
-                "lastName": "Smith"
+                "firstName": "Sophia",
+                "lastName": "Davis"
             },
-            "description": "A beginner's course in programming using Python."
+            "description": "Explore the fundamentals of user interface and user experience design with tools like Figma."
         },
         {
-            "title": "Data Structures and Algorithms",
+            "title": "UI/UX Design for Beginners",
             "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
+                "firstName": "Sophia",
+                "lastName": "Davis"
             },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
+            "description": "Explore the fundamentals of user interface and user experience design with tools like Figma."
         },
         {
-            "title": "Introduction to Programming",
+            "title": "UI/UX Design for Beginners",
             "teacher": {
-                "firstName": "Alice",
-                "lastName": "Smith"
+                "firstName": "Sophia",
+                "lastName": "Davis"
             },
-            "description": "A beginner's course in programming using Python."
-        },
-        {
-            "title": "Data Structures and Algorithms",
-            "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
-            },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
-        },
-        {
-            "title": "Introduction to Programming",
-            "teacher": {
-                "firstName": "Alice",
-                "lastName": "Smith"
-            },
-            "description": "A beginner's course in programming using Python."
-        },
-        {
-            "title": "Data Structures and Algorithms",
-            "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
-            },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
-        },
-        {
-            "title": "Introduction to Programming",
-            "teacher": {
-                "firstName": "Alice",
-                "lastName": "Smith"
-            },
-            "description": "A beginner's course in programming using Python."
-        },
-        {
-            "title": "Data Structures and Algorithms",
-            "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
-            },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
-        },
-        {
-            "title": "Introduction to Programming",
-            "teacher": {
-                "firstName": "Alice",
-                "lastName": "Smith"
-            },
-            "description": "A beginner's course in programming using Python."
-        },
-        {
-            "title": "Data Structures and Algorithms",
-            "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
-            },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
-        },
-        {
-            "title": "Introduction to Programming",
-            "teacher": {
-                "firstName": "Alice",
-                "lastName": "Smith"
-            },
-            "description": "A beginner's course in programming using Python."
-        },
-        {
-            "title": "Data Structures and Algorithms",
-            "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
-            },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
-        },
-        {
-            "title": "Introduction to Programming",
-            "teacher": {
-                "firstName": "Alice",
-                "lastName": "Smith"
-            },
-            "description": "A beginner's course in programming using Python."
-        },
-        {
-            "title": "Data Structures and Algorithms",
-            "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
-            },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
-        },
-        {
-            "title": "Introduction to Programming",
-            "teacher": {
-                "firstName": "Alice",
-                "lastName": "Smith"
-            },
-            "description": "A beginner's course in programming using Python."
-        },
-        {
-            "title": "Data Structures and Algorithms",
-            "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
-            },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
-        },
-        {
-            "title": "Introduction to Programming",
-            "teacher": {
-                "firstName": "Alice",
-                "lastName": "Smith"
-            },
-            "description": "A beginner's course in programming using Python."
-        },
-        {
-            "title": "Data Structures and Algorithms",
-            "teacher": {
-                "firstName": "Bob",
-                "lastName": "Johnson"
-            },
-            "description": "Learn about data structures like lists, stacks, and queues, and algorithms like sorting and searching."
+            "description": "Explore the fundamentals of user interface and user experience design with tools like Figma."
         }
-
     ]
 }
