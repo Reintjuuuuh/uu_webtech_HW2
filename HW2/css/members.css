@@ -67,3 +67,10 @@ footer {
     flex: 1; 
     min-height: 5vh;
 }
+
+img {
+    max-width: 800px;
+    max-height: 600px;
+    width: auto;      
+    height: auto; 
+}
