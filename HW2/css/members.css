@@ -6,7 +6,7 @@
 
 header {
     background-color: rgb(157, 168, 196);
-    font-size: clamp(30px, 3vw, 140px);
+    font-size: clamp(40px, 3vw, 140px);
     font-family: "Lucida Calligraphy";
     margin: 0;
     text-align: center;
@@ -27,14 +27,14 @@ section {
     text-align: center;
 }
 
-.title {
+/*.title {
     background-color: inherit;
     text-align: center;
     font-size: clamp(60px, 3vw, 120px);
     height: 2vh;
     margin: 3vh;
     position: absolute;
-}
+}*/
 /*
 h1 {
     background-color: inherit;
