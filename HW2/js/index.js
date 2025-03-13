@@ -40,7 +40,6 @@ function readJsonFile(file, functionWhenRead) {
             if (verifiedObject) {
                 verifiedObject = verifiedObject.toJSON();
                 verifiedObject = JSON.stringify(verifiedObject);
-
                 functionWhenRead(verifiedObject);
             }
             else {
@@ -275,12 +274,16 @@ function validateString(text, field) {
     }
     if ((field === "firstName" || field === "lastName") //allows only letters
         && !/^[A-Za-z\s]+$/.test(text)) {
-            alert(`Formatting error in ${field}. ${field} can only include letters.`);
+        alert(`Formatting error in ${field}. ${field} can only include letters.`);
         throw new Error(`Formatting error in ${field}. ${field} can only include letters.`);
     }
     else if (!/^[\p{L}\p{M}\p{N}\p{P}\p{Z}\p{S}]+$/u.test(text)) { //allows basically all text.
         alert(`Formatting error in ${field}.`);
         throw new Error(`Formatting error in ${field}.`);
+    }
+
+    if (field === "Hobby") {
+        return ' ' + String(text[0]).toUpperCase() + String(text).slice(1); //for spaces in the hobby list. Now it will look like "Reading, Hiking" instead of "Reading,Hiking"
     }
 
     return String(text[0]).toUpperCase() + String(text).slice(1); //capitalize first letter

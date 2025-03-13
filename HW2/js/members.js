@@ -32,10 +32,15 @@ function loadPageWithInformation(studentObject) {
     let studentSectionTitle = studentSection.getElementsByTagName("h1")[0];
     studentSectionTitle.appendChild(newText(`Who is ${studentObject.firstName} ${studentObject.lastName}?`))
 
-    for (let i = 0; i < 5; i++) {
+    var img = document.createElement("img");
+    img.src = studentObject.photo;
+    studentSection.appendChild(img);
+
+    for (let i = 1; i < 6; i++) {
         let paragraphEl = document.createElement("p");
         studentSection.appendChild(paragraphEl);
     }
+
     let studentSectionParagraph = studentSection.getElementsByTagName("p");
 
     studentSectionParagraph[0].appendChild(newText(`Name: ${studentObject.firstName} ${studentObject.lastName}`));
