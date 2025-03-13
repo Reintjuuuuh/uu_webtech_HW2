@@ -1,4 +1,5 @@
 //Adds all event listeners
+var selectedItem;
 function addAllEventListeners() {
     document.body.addEventListener("click", (event) => changeAppearance(event));
       //    {
@@ -132,10 +133,22 @@ function loadPageWithInformation(studentObject) {
     boldLabel.textContent = " Bold |";
     boldLabel.htmlFor = "boldCheckbox";
     
+    // instantChange
+    const instantChangeCheckbox = document.createElement("input");
+    instantChangeCheckbox.type = "checkbox";
+    instantChangeCheckbox.id = "instantChangeCheckbox"
+
+    const instantChangeLabel = document.createElement("label");
+    instantChangeLabel.textContent = "| Change the element on click (no button press required)";
+    
     // Start the menu list
     const footer = document.createElement("footer");
     const menu = document.createElement("select");  
     menu.id = "selectedMenu";
+    menu.onchange = () => {
+      selectedItem = menu.value;
+      selectedItemLabel.textContent = `Selected item: ${menu.value}  | `;
+    };
     const sectionList = document.querySelectorAll("section");
     const articleList = document.querySelectorAll("article");
     const body = document.querySelector("body");
@@ -159,6 +172,11 @@ function loadPageWithInformation(studentObject) {
     listNode.textContent = "body";
     menu.appendChild(listNode);
 
+    const selectedItemLabel = document.createElement("label");
+    selectedItemLabel.textContent = "Selected item: ";
+    selectedItemLabel.id = "SelectedItemLabel"
+
+    footer.appendChild(selectedItemLabel);
     footer.appendChild(menu);
     footer.appendChild(fontMenu);
     footer.appendChild(colourCheckbox);
@@ -173,38 +191,54 @@ function loadPageWithInformation(studentObject) {
     fontButton = document.createElement("button");
     fontButtonText = document.createTextNode("Change appearance!");
     fontButton.addEventListener("click", function() {
-        console.log(`test: ${fontMenu.value}, ${menu.value}, ${sizeCheckbox.value}, ${boldCheckbox.checked}`);
-        let article = document.getElementById(menu.value);
+        console.log(`test: ${fontMenu.value}, ${menu.value}, ${sizeCheckbox.value}, ${boldCheckbox.checked}`); 
         // In the case of body
-        if (!article)
+        if (!selectedItem)
         {
-            article = document.getElementsByTagName(menu.value)[0];
+            selectedItem = document.getElementsByTagName(menu.value)[0];
         }
 
         if (sizeCheckbox.value <= 50) {
-            article.style.fontSize = `${sizeCheckbox.value}px`;
+            selectedItem.style.fontSize = `${sizeCheckbox.value}px`;
         } else {
             alert("font size may not be greater than 50");
         }
-        article.style.fontFamily = fontMenu.value;
-        article.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
-        article.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
-        article.style.color = colourCheckbox.value;
-        console.log(article.style);   
+        selectedItem.style.fontFamily = fontMenu.value;
+        selectedItem.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
+        selectedItem.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
+        selectedItem.style.color = colourCheckbox.value;
+        console.log(selectedItem.style);   
     })
     
     fontButton.appendChild(fontButtonText);
     footer.appendChild(fontButton);
+    footer.appendChild(instantChangeLabel);
+    footer.appendChild(instantChangeCheckbox);
     document.body.appendChild(footer);
 }
 
+
 function changeAppearance(event){
+  
+  // The buttons are in the footer, those elements shouldn't be changed for every click.
+  if (document.getElementsByTagName("footer")[0].contains(event.target)){
+    return;
+  }
+  selectedItem = event.target;
+  const targetItemMenu = document.getElementById("SelectedItemLabel");
+  targetItemMenu.textContent = `Selected item: ${selectedItem.id ? selectedItem.id : selectedItem.tagName}  | `;
   const colourCheckbox = document.getElementById("colourCheckbox");
   const sizeCheckbox = document.getElementById("sizeCheckbox");
   const italicCheckbox = document.getElementById("italicCheckbox");
   const boldCheckbox = document.getElementById("boldCheckbox");
+
+  const instantChangeEnabled = document.getElementById("instantChangeCheckbox").checked;
+  if (instantChangeEnabled)
+  {
   let targetObject = event.target;
 
+  console.log(event);
+  
   if (sizeCheckbox.value <= 50) {
       targetObject.style.fontSize = `${sizeCheckbox.value}px`;
   } else {
@@ -215,6 +249,7 @@ function changeAppearance(event){
   targetObject.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
   targetObject.style.color = colourCheckbox.value;
   console.log(targetObject.style);
+  }
 }
 //Creates a new text node
 function newText(text) {
