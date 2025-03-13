@@ -187,6 +187,8 @@ function loadPageWithInformation(studentObject) {
         {
             selectedItem = document.getElementsByTagName(menu.value)[0];
         }
+        // The styles of the child items need to be cleared, otherwise they won't inherit the style.
+        selectedItem.querySelectorAll("*").forEach(child => {child.removeAttribute("style");});
 
         if (sizeCheckbox.value <= 50) {
             selectedItem.style.fontSize = `${sizeCheckbox.value}px`;
@@ -225,20 +227,23 @@ function changeAppearance(event){
   const instantChangeEnabled = document.getElementById("instantChangeCheckbox").checked;
   if (instantChangeEnabled)
   {
-  let targetObject = event.target;
+      // The styles of the child items need to be cleared, otherwise they won't inherit the style.
+      selectedItem.querySelectorAll("*").forEach(child => {child.removeAttribute("style");});
 
-  console.log(event);
-  
-  if (sizeCheckbox.value <= 50) {
-      targetObject.style.fontSize = `${sizeCheckbox.value}px`;
-  } else {
-      alert("Font size may not be greater than 50");
-  }
-  targetObject.style.fontFamily = fontMenu.value;
-  targetObject.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
-  targetObject.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
-  targetObject.style.color = colourCheckbox.value;
-  console.log(targetObject.style);
+      console.log(event);
+      
+      if (sizeCheckbox.value <= 50) {
+          selectedItem.style.fontSize = `${sizeCheckbox.value}px`;
+      } else {
+          alert("Font size may not be greater than 50");
+      }
+
+
+      selectedItem.style.fontFamily = fontMenu.value;
+      selectedItem.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
+      selectedItem.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
+      selectedItem.style.color = colourCheckbox.value;
+      console.log(selectedItem.style);
   }
 }
 //Creates a new text node
