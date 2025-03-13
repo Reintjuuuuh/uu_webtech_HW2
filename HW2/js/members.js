@@ -49,12 +49,14 @@ function loadPageWithInformation(studentObject) {
     const h2El = document.createElement("h2");
     h2El.appendChild(newText("Courses"));
     article.insertBefore(h2El, courseSection);
-    //Add a list of courses
+
+    //Check for amount of colums depending on screen width
     let amountOfColums = 4;
     if (window.innerWidth < 600) {
         amountOfColums = 2;
     } 
 
+    //Add multible lists of courses and devide the courses over al lists
     for (let i = 0; i < amountOfColums; i++) {
         const unorderdListEl = document.createElement("ul");
         courseSection.appendChild(unorderdListEl);
