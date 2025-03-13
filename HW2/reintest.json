@@ -1,0 +1,30 @@
+
+      {
+        "firstName": "John",
+        "lastName": "Doe",
+        "age": 22,
+        "hobbies": ["Reading", "Hiking"],
+        "email": "john.doe@example.com",
+        "photo": "https://www.mail-signatures.com/wp-content/uploads/2019/02/How-to-find-direct-link-to-image_Blog-Picture.png",
+        "major": "Computer Science",
+        "courses": [
+          {
+            "title": "Data Structures",
+            "teacher": {
+              "firstName": "Alice",
+              "lastName": "Smith"
+            },
+            "description": "An in-depth look at data structures and algorithms."
+          },
+          {
+            "title": "Machine Learning",
+            "teacher": {
+              "firstName": "Bob",
+              "lastName": "Johnson"
+            },
+            "description": "An introduction to machine learning and AI."
+          }
+        ]
+      }
+
+  
