@@ -43,7 +43,6 @@ function loadPageWithInformation(studentObject) {
     studentSectionParagraph[3].appendChild(newText(`Email: ${studentObject.email}`));
     studentSectionParagraph[4].appendChild(newText(`Major: ${studentObject.major}`));
 
-
     //Creating course table
     courseSection.appendChild(tableEl);
     let table = courseSection.getElementsByTagName("table")[0];

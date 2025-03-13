@@ -1,6 +1,6 @@
 
       {
-        "firstName": "John",
+        "firstName": "john",
         "lastName": "Doe",
         "age": 22,
         "hobbies": ["Reading", "Hiking"],
