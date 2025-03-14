@@ -1,0 +1,27 @@
+{
+  "firstName": "Rein",
+  "lastName": "Spaan",
+  "age": 18,
+  "hobbies": ["Bouldering", "Piano", "Cooking", "Games"],
+  "email": "reinspaan@gmail.com",
+  "photo": "https://uzletihirszerzes.hu/media/k2/items/cache/9f78c9db8d5bce663e38321801209201_XL.jpg",
+  "major": "Computer Science",
+  "courses": [
+    {
+      "title": "Data Structures",
+      "teacher": {
+        "firstName": "Alice",
+        "lastName": "Smith"
+      },
+      "description": "An in-depth look at data structures and algorithms."
+    },
+    {
+      "title": "Machine Learning",
+      "teacher": {
+        "firstName": "Bob",
+        "lastName": "Johnson"
+      },
+      "description": "An introduction to machine learning and AI."
+    }
+  ]
+}
