@@ -53,7 +53,6 @@ function readJsonFile(file, functionWhenRead) {
         catch (error) {
             alert("Error parsing JSON file");
         }
-        
     }
 
     reader.onerror = () => {
