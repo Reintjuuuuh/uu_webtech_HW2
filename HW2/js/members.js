@@ -14,15 +14,14 @@ function getObjectFromStorage(key) {
 function loadPageWithInformation(studentObject) {
     //Reference to elements we need
     const body = document.querySelector("body");
-    const header = body.appendChild(document.createElement('header'));
     const articleStudent = body.appendChild(document.createElement('article'));
+    const header = articleStudent.appendChild(document.createElement('header'));
     articleStudent.id = 'article-student';
 
     const studentSection = articleStudent.appendChild(document.createElement('section'));
     studentSection.id = 'section-student';
     const courseSection = articleStudent.appendChild(document.createElement('section'));
     courseSection.id = 'section-course';
-    const amountOfCourses = studentObject.courses.length;
 
     //Put elements of studentsection in
     header.appendChild(newText(`About ${studentObject.firstName} ${studentObject.lastName}`));
