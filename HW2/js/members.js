@@ -192,12 +192,16 @@ function insertCourseSection(studentObject) {
 
     //Check for amount of colums depending on screen width
     let amountOfColums = 4;
-    if (document.body.clientWidth < 900) {
+    if (document.body.clientWidth < 1200) {
         amountOfColums = 3;
     };
 
-    if (document.body.clientWidth < 600) {
+    if (document.body.clientWidth < 900) {
         amountOfColums = 2;
+    };
+
+    if (document.body.clientWidth < 600) {
+        amountOfColums = 1;
     };
 
     //Add multible lists of courses and devide the courses over al lists

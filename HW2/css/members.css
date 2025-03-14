@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     margin: 0px;
+    font-size: 26px;
 }
 
 header {
     background-color: rgb(157, 168, 196);
-    font-size: clamp(40px, 3vw, 140px);
+    font-size: clamp(30px, 3vw, 140px);
     font-family: "Lucida Calligraphy";
     margin: 0;
     text-align: center;
@@ -37,6 +38,7 @@ section {
 
 ul {
     list-style-position: inside;
+    width: 220px;
 }
 
 li{
@@ -50,7 +52,7 @@ footer {
 }
 
 h1, h2{
-    font-size: 25px;
+    font-size: 30px;
 }
 
 h2{
