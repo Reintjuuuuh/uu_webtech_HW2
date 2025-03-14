@@ -12,10 +12,16 @@ function getObjectFromStorage(key) {
 };
 
 function loadPageWithInformation(studentObject) {
-    //Refrence to elements we need
-    const header = document.querySelector("header");
-    const studentSection = document.getElementById("section-student");
-    const courseSection = document.getElementById("section-course");
+    //Reference to elements we need
+    const body = document.querySelector("body");
+    const header = body.appendChild(document.createElement('header'));
+    const articleStudent = body.appendChild(document.createElement('article'));
+    articleStudent.id = 'article-student';
+
+    const studentSection = articleStudent.appendChild(document.createElement('section'));
+    studentSection.id = 'section-student';
+    const courseSection = articleStudent.appendChild(document.createElement('section'));
+    courseSection.id = 'section-course';
     const amountOfCourses = studentObject.courses.length;
 
     //Put elements of studentsection in
@@ -125,7 +131,6 @@ function loadPageWithInformation(studentObject) {
     };
     const sectionList = document.querySelectorAll("section");
     const articleList = document.querySelectorAll("article");
-    const body = document.querySelector("body");
 
     for (let i = 0; i < articleList.length; i++)
     {
