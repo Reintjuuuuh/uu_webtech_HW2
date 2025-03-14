@@ -8,20 +8,60 @@
   "major": "Computer Science",
   "courses": [
     {
-      "title": "Data Structures",
+      "title": "Imperatief programmeren",
       "teacher": {
-        "firstName": "Alice",
-        "lastName": "Smith"
+          "firstName": "Jeroen",
+          "lastName": "Fokker"
       },
-      "description": "An in-depth look at data structures and algorithms."
+      "description": "In dit vak leer je de programmeertalen C# en Python, waarin opdrachten gebundeld worden in zogeheten methoden, die een object bewerken. Het is daarmee tevens een inleiding in objectgeorienteerd programmeren."
     },
     {
-      "title": "Machine Learning",
+      "title": "Bewijzen in de wiskunde",
       "teacher": {
-        "firstName": "Bob",
-        "lastName": "Johnson"
+          "firstName": "Pim",
+          "lastName": "Otte"
       },
-      "description": "An introduction to machine learning and AI."
+      "description": "In het vak Bewijzen in de Wiskunde maakt de student kennis met de abstracte redeneerstijl in de wiskunde en oefent met verschillende bewijsmethoden."
+    },
+    {
+      "title": "Infinitesimaalrekening 1",
+      "teacher": {
+          "firstName": "Viktor",
+          "lastName": "Blasjo"
+      },
+      "description": "Dit vak bestaat uit de behandeling van twee verschillende basisonderwerpen uit de wiskunde - Infinitesimaalrekening en Lineaire algebra - die gescheiden van elkaar behandeld zullen worden."
+    },
+    {
+    "title": "Lineaire Algebra 1",
+    "teacher": {
+        "firstName": "Barbara",
+        "lastName": "van den Berg"
+      },
+    "description": "Dit vak bestaat uit de behandeling van twee verschillende basisonderwerpen uit de wiskunde - Infinitesimaalrekening en Lineaire algebra - die gescheiden van elkaar behandeld zullen worden."
+    },
+    {
+      "title": "Informatica introductieproject",
+      "teacher": {
+          "firstName": "Jelle",
+          "lastName": "Oosteen"
+        },
+      "description": "Tijdens het project wordt er een Informatica gerelateerd product ontwikkeld in een team van ongeveer 6 studenten. Van deelnemers wordt verwacht dat ze het vak Imperatief programmeren hebben gevolgd en kunnen programmeren in C#."
+    },
+    {
+      "title": "Webtech",
+      "teacher": {
+          "firstName": "Sergey",
+          "lastName": "Sosnovsky"
+        },
+      "description": "n deze praktische cursus kijken we hoe voor dit specifieke onderdeel van het Internet geprogrammeerd kan worden, op een veilige en werkbare manier, zowel voor de eindgebruiker als voor de programmeur. De historische context en bijbehorende technische concepten worden toegelicht."
+    },
+    {
+      "title": "Databases",
+      "teacher": {
+          "firstName": "Hans",
+          "lastName": "Philippi"
+        },
+      "description": "In dit vak wordt de basis van relationele databases behandeld, waarbij de nadruk op ontwerpen en vraagtalen ligt. Daarnaast wordt gekeken naar de interne werking van een databasesysteem: hoe worden transacties verwerkt, hoe wordt een query geoptimaliseerd en uitgevoerd. Tenslotte besteden we aandacht aan enkele recente ontwikkelingen, zoals NoSQL databases."
     }
   ]
 }
