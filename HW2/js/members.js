@@ -119,27 +119,19 @@ function loadPageWithInformation(studentObject) {
       selectedItem = menu.value;
       selectedItemLabel.textContent = `Selected item: ${menu.value}  | `;
     };
-    const sectionList = document.querySelectorAll("section");
-    const articleList = document.querySelectorAll("article");
 
-    for (let i = 0; i < articleList.length; i++)
-    {
-        const listNode = document.createElement("option"); 
-        listNode.textContent = articleList[i].id; 
+    // Dynamically scan the HTML for all elements
+    const allElements = document.querySelectorAll("*");
+    // Sets only allow unique elements (prevents a thousand <p> elements from clogging up the dropdown)
+    const tagNames = new Set();
+    // toLowerCase because for some reason all tag names are full caps by default
+    allElements.forEach(element => tagNames.add(element.tagName.toLowerCase()));
+    
+    tagNames.forEach(tagName => {
+        const listNode = document.createElement("option");
+        listNode.textContent = tagName;
         menu.appendChild(listNode);
-    };
-
-    for (let i = 0; i < sectionList.length; i++)
-    {
-        const listNode = document.createElement("option"); 
-        listNode.textContent = sectionList[i].id; 
-        menu.appendChild(listNode);
-    };
-    // There is only one body
-    const bodyElement = document.querySelectorAll("body");
-    listNode = document.createElement("option");
-    listNode.textContent = "body";
-    menu.appendChild(listNode);
+    });
 
     const selectedItemLabel = document.createElement("label");
     selectedItemLabel.textContent = "Selected item: ";
@@ -161,24 +153,25 @@ function loadPageWithInformation(studentObject) {
     fontButtonText = document.createTextNode("Change appearance!");
     fontButton.addEventListener("click", function() {
         console.log(`test: ${fontMenu.value}, ${menu.value}, ${sizeCheckbox.value}, ${boldCheckbox.checked}`); 
-        // In the case of body
-        if (!selectedItem)
-        {
-            selectedItem = document.getElementsByTagName(menu.value)[0];
-        };
-        // The styles of the child items need to be cleared, otherwise they won't inherit the style.
-        selectedItem.querySelectorAll("*").forEach(child => {child.removeAttribute("style")});
+        // querySelectorAll has a handy forEach loop.
+        selectedItems = document.querySelectorAll(menu.value)
+        selectedItems.forEach(selectedItem => {
+            // The styles of the child items need to be cleared, otherwise they won't inherit the style.
+            selectedItem.querySelectorAll("*").forEach(child => {child.removeAttribute("style")});
 
-        if (sizeCheckbox.value <= 50) {
-            selectedItem.style.fontSize = `${sizeCheckbox.value}px`;
-        } else {
-            alert("font size may not be greater than 50");
-        };
-        selectedItem.style.fontFamily = fontMenu.value;
-        selectedItem.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
-        selectedItem.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
-        selectedItem.style.color = colourCheckbox.value;
-        console.log(selectedItem.style);   
+            if (sizeCheckbox.value <= 50) {
+                selectedItem.style.fontSize = `${sizeCheckbox.value}px`;
+            } else {
+                alert("font size may not be greater than 50");
+            };
+
+            selectedItem.style.fontFamily = fontMenu.value;
+            selectedItem.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
+            selectedItem.style.fontWeight = boldCheckbox.checked ? "bold" : "normal";
+            selectedItem.style.color = colourCheckbox.value;
+
+        })
+
     });
     
     fontButton.appendChild(fontButtonText);
@@ -235,20 +228,22 @@ function changeAppearance(event){
   };
   selectedItem = event.target;
   const targetItemMenu = document.getElementById("SelectedItemLabel");
-  targetItemMenu.textContent = `Selected item: ${selectedItem.id ? selectedItem.id : selectedItem.tagName}  | `;
+  targetItemMenu.textContent = `Selected item: ${selectedItem.tagName.toLowerCase()}  | `;
+  // Because all lowercase tagnames are in the menu, this will work.
+  const itemMenu = document.getElementById("selectedMenu");
+  itemMenu.value = selectedItem.tagName.toLowerCase();
   const colourCheckbox = document.getElementById("colourCheckbox");
   const sizeCheckbox = document.getElementById("sizeCheckbox");
   const italicCheckbox = document.getElementById("italicCheckbox");
   const boldCheckbox = document.getElementById("boldCheckbox");
 
   const instantChangeEnabled = document.getElementById("instantChangeCheckbox").checked;
+  // Code is slightly different from the button event, because we only want to change what we click on, not every single occurence of the same element.
   if (instantChangeEnabled)
   {
       // The styles of the child items need to be cleared, otherwise they won't inherit the style.
       selectedItem.querySelectorAll("*").forEach(child => {child.removeAttribute("style")});
 
-      console.log(event);
-      
       if (sizeCheckbox.value <= 50) {
           selectedItem.style.fontSize = `${sizeCheckbox.value}px`;
       } else {
