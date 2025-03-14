@@ -52,7 +52,7 @@ function loadPageWithInformation(studentObject) {
 
     //Check for amount of colums depending on screen width
     let amountOfColums = 4;
-    if (window.innerWidth < 600) {
+    if (screen.width < 600) {
         amountOfColums = 2;
     } 
 
