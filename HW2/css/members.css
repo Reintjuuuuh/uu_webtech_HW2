@@ -27,7 +27,7 @@ section {
     text-align: center;
 }
 
-#section-course{
+#section-course > div{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly; 

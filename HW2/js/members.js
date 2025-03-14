@@ -20,7 +20,6 @@ function loadPageWithInformation(studentObject) {
     const header = document.querySelector("header");
     const studentSection = document.getElementById("section-student");
     const courseSection = document.getElementById("section-course");
-    const amountOfCourses = studentObject.courses.length;
 
     //Put elements of studentsection in
     header.appendChild(newText(`About ${studentObject.firstName} ${studentObject.lastName}`));
@@ -47,41 +46,13 @@ function loadPageWithInformation(studentObject) {
     studentSectionParagraph[4].appendChild(newText(`Major: ${studentObject.major}`));
 
     //Insert title
-    const article = document.querySelector("article");
     const h2El = document.createElement("h2");
-    h2El.appendChild(newText("Courses"));
-    article.insertBefore(h2El, courseSection);
-
-    //Check for amount of colums depending on screen width
-    let amountOfColums = 4;
-    if (document.body.clientWidth < 900) {
-        amountOfColums = 3;
-    }
-
-    if (document.body.clientWidth < 600) {
-        amountOfColums = 2;
-    } 
-
+    courseSection.appendChild(h2El);
+    h2 = document.querySelector("h2");
+    h2.appendChild(newText("Courses"));
+    const divEl = document.createElement("div");
+    courseSection.appendChild(divEl);
     insertCourseSection(studentObject);
-    /*//Add multible lists of courses and devide the courses over al lists
-    for (let i = 0; i < amountOfColums; i++) {
-        const unorderdListEl = document.createElement("ul");
-        courseSection.appendChild(unorderdListEl);
-        const unorderdList = document.querySelectorAll("ul")[i];
-        for (let j = 0; j < amountOfCourses / amountOfColums; j++) {
-            let index = j + Math.ceil(amountOfCourses * (i / amountOfColums));
-            if (index > amountOfCourses - 1) {
-                continue;
-            }
-            const listEl = document.createElement("li");
-            unorderdList.appendChild(listEl);
-            const currentList = unorderdList.querySelectorAll("li")[j];
-            currentList.appendChild((newText(studentObject.courses[index].title)));
-            //Adding the tooltips
-            currentList.title = `Teacher: ${studentObject.courses[index].teacher.firstName} ${studentObject.courses[index].teacher.firstName} \n Description: ${studentObject.courses[index].description}`;
-            
-        }
-    }*/
 
     // Start of option lists
     // Font menu
@@ -148,7 +119,6 @@ function loadPageWithInformation(studentObject) {
     };
     const sectionList = document.querySelectorAll("section");
     const articleList = document.querySelectorAll("article");
-    const body = document.querySelector("body");
 
     for (let i = 0; i < articleList.length; i++)
     {
@@ -218,10 +188,11 @@ function loadPageWithInformation(studentObject) {
 
 function insertCourseSection(studentObject) {
     const courseSection = document.getElementById("section-course");
+    const div = courseSection.querySelector("div");
     const amountOfCourses = studentObject.courses.length;
 
-    while (courseSection.firstChild) {
-        courseSection.removeChild(courseSection.firstChild);
+    while (div.firstChild) {
+        div.removeChild(div.firstChild);
     }
 
     //Check for amount of colums depending on screen width
@@ -237,7 +208,7 @@ function insertCourseSection(studentObject) {
     //Add multible lists of courses and devide the courses over al lists
     for (let i = 0; i < amountOfColums; i++) {
         const unorderdListEl = document.createElement("ul");
-        courseSection.appendChild(unorderdListEl);
+        div.appendChild(unorderdListEl);
         const unorderdList = document.querySelectorAll("ul")[i];
         for (let j = 0; j < amountOfCourses / amountOfColums; j++) {
             let index = j + Math.ceil(amountOfCourses * (i / amountOfColums));
@@ -249,7 +220,7 @@ function insertCourseSection(studentObject) {
             const currentList = unorderdList.querySelectorAll("li")[j];
             currentList.appendChild((newText(studentObject.courses[index].title)));
             //Adding the tooltips
-            currentList.title = `Teacher: ${studentObject.courses[index].teacher.firstName} ${studentObject.courses[index].teacher.firstName} \n Description: ${studentObject.courses[index].description}`;
+            currentList.title = `Teacher: ${studentObject.courses[index].teacher.firstName} ${studentObject.courses[index].teacher.lastName} \n Description: ${studentObject.courses[index].description}`;
         }
     }
 }
@@ -281,7 +252,6 @@ function changeAppearance(event){
       } else {
           alert("Font size may not be greater than 50");
       }
-
 
       selectedItem.style.fontFamily = fontMenu.value;
       selectedItem.style.fontStyle = italicCheckbox.checked ? "italic" : "normal";
