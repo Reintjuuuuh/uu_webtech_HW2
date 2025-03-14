@@ -2,6 +2,8 @@
 var selectedItem;
 function addAllEventListeners() {
     document.body.addEventListener("click", (event) => changeAppearance(event));
+    window.addEventListener("resize", (event) => insertCourseSection(getObjectFromStorage("student")));
+
       //    {
       //        alert(You clicked on: ${event.target.tagName} (ID: ${event.target.id || "no ID"}));
       //    });
@@ -52,11 +54,16 @@ function loadPageWithInformation(studentObject) {
 
     //Check for amount of colums depending on screen width
     let amountOfColums = 4;
-    if (screen.width < 600) {
+    if (document.body.clientWidth < 900) {
+        amountOfColums = 3;
+    }
+
+    if (document.body.clientWidth < 600) {
         amountOfColums = 2;
     } 
 
-    //Add multible lists of courses and devide the courses over al lists
+    insertCourseSection(studentObject);
+    /*//Add multible lists of courses and devide the courses over al lists
     for (let i = 0; i < amountOfColums; i++) {
         const unorderdListEl = document.createElement("ul");
         courseSection.appendChild(unorderdListEl);
@@ -74,7 +81,7 @@ function loadPageWithInformation(studentObject) {
             currentList.title = `Teacher: ${studentObject.courses[index].teacher.firstName} ${studentObject.courses[index].teacher.firstName} \n Description: ${studentObject.courses[index].description}`;
             
         }
-    }
+    }*/
 
     // Start of option lists
     // Font menu
@@ -209,6 +216,43 @@ function loadPageWithInformation(studentObject) {
     document.body.appendChild(footer);
 }
 
+function insertCourseSection(studentObject) {
+    const courseSection = document.getElementById("section-course");
+    const amountOfCourses = studentObject.courses.length;
+
+    while (courseSection.firstChild) {
+        courseSection.removeChild(courseSection.firstChild);
+    }
+
+    //Check for amount of colums depending on screen width
+    let amountOfColums = 4;
+    if (document.body.clientWidth < 900) {
+        amountOfColums = 3;
+    }
+
+    if (document.body.clientWidth < 600) {
+        amountOfColums = 2;
+    }
+
+    //Add multible lists of courses and devide the courses over al lists
+    for (let i = 0; i < amountOfColums; i++) {
+        const unorderdListEl = document.createElement("ul");
+        courseSection.appendChild(unorderdListEl);
+        const unorderdList = document.querySelectorAll("ul")[i];
+        for (let j = 0; j < amountOfCourses / amountOfColums; j++) {
+            let index = j + Math.ceil(amountOfCourses * (i / amountOfColums));
+            if (index > amountOfCourses - 1) {
+                continue;
+            }
+            const listEl = document.createElement("li");
+            unorderdList.appendChild(listEl);
+            const currentList = unorderdList.querySelectorAll("li")[j];
+            currentList.appendChild((newText(studentObject.courses[index].title)));
+            //Adding the tooltips
+            currentList.title = `Teacher: ${studentObject.courses[index].teacher.firstName} ${studentObject.courses[index].teacher.firstName} \n Description: ${studentObject.courses[index].description}`;
+        }
+    }
+}
 
 function changeAppearance(event){
   
