@@ -50,27 +50,11 @@ function loadPageWithInformation(studentObject) {
 
     //Insert title
     const h2El = document.createElement("h2");
-<<<<<<< HEAD
     courseSection.appendChild(h2El);
     h2 = document.querySelector("h2");
     h2.appendChild(newText("Courses"));
     const divEl = document.createElement("div");
     courseSection.appendChild(divEl);
-=======
-    h2El.appendChild(newText("Courses"));
-    article.insertBefore(h2El, courseSection);
-
-    //Check for amount of colums depending on screen width
-    let amountOfColums = 4;
-    if (document.body.clientWidth < 900) {
-        amountOfColums = 3;
-    };
-
-    if (document.body.clientWidth < 600) {
-        amountOfColums = 2;
-    };
-
->>>>>>> 72da11c87f9d2a536c54e8e7aae7afc2f9e02b98
     insertCourseSection(studentObject);
 
     // Start of option lists
@@ -210,15 +194,9 @@ function insertCourseSection(studentObject) {
     const div = courseSection.querySelector("div");
     const amountOfCourses = studentObject.courses.length;
 
-<<<<<<< HEAD
     while (div.firstChild) {
         div.removeChild(div.firstChild);
     }
-=======
-    while (courseSection.firstChild) {
-        courseSection.removeChild(courseSection.firstChild);
-    };
->>>>>>> 72da11c87f9d2a536c54e8e7aae7afc2f9e02b98
 
     //Check for amount of colums depending on screen width
     let amountOfColums = 4;
@@ -245,17 +223,10 @@ function insertCourseSection(studentObject) {
             const currentList = unorderdList.querySelectorAll("li")[j];
             currentList.appendChild((newText(studentObject.courses[index].title)));
             //Adding the tooltips
-<<<<<<< HEAD
             currentList.title = `Teacher: ${studentObject.courses[index].teacher.firstName} ${studentObject.courses[index].teacher.lastName} \n Description: ${studentObject.courses[index].description}`;
         }
     }
 }
-=======
-            currentList.title = `Teacher: ${studentObject.courses[index].teacher.firstName} ${studentObject.courses[index].teacher.firstName} \n Description: ${studentObject.courses[index].description}`;
-        };
-    };
-};
->>>>>>> 72da11c87f9d2a536c54e8e7aae7afc2f9e02b98
 
 function changeAppearance(event){
   
