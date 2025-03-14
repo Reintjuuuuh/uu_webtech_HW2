@@ -1,0 +1,59 @@
+{
+    "firstName": "Boaz",
+    "lastName":  "Roskam",
+    "age": 20,
+    "hobbies": [ "Videogames", "Boardgames with friends", "Playing with my dog" ],
+    "email": "boazroskam@gmail.com",
+    "photo": "https://st.depositphotos.com/1144472/2003/i/950/depositphotos_20030237-stock-photo-cheerful-young-man-over-white.jpg",
+    "major": "Computer Science",
+    "courses": [
+        {
+            "title": "Imperatief programmeren",
+            "teacher": {
+                "firstName": "Jeroen",
+                "lastName": "Fokker"
+            },
+            "description": "A beginner's course in programming using Python or C#"
+        },
+        {
+            "title": "Bewijzen in de wiskunde",
+            "teacher": {
+                "firstName": "Pim",
+                "lastName": "Otte"
+            },
+            "description": "A course for learning the basics of mathematical proof and logic"
+        },
+        {
+            "title": "Infinitesimaalrekenen / Liniare algebra",
+            "teacher": {
+                "firstName": "Barbera",
+                "lastName": "van den Berg"
+            },
+            "description": "A course for learning the basics of mathematical proof and logic"
+        },
+        {
+            "title": "Informatica softwareproject",
+            "teacher": {
+                "firstName": "Jelle",
+                "lastName": "Oosteen"
+            },
+            "description": "An course for working on your programming skills by making a group project of your choise "
+        },
+        {
+            "title": "Webtech",
+            "teacher": {
+                "firstName": "Sergey",
+                "lastName": "Sosnovsky"
+            },
+            "description": "A course to learn how to build a website and a server"
+        },
+        {
+            "title": "Databases",
+            "teacher": {
+                "firstName": "Hans",
+                "lastName": "Philippi"
+            },
+            "description": "A course to learn how to manage a dabases"
+        }
+    ]
+}
