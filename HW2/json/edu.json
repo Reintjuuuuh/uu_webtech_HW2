@@ -9,6 +9,22 @@
     "major": "Computer Science",
     "courses": [
       {
+        "title": "Imperatief programmeren",
+        "teacher": {
+            "firstName": "Jeroen",
+            "lastName": "Fokker"
+        },
+        "description": "In dit vak leer je de programmeertalen C# en Python, waarin opdrachten gebundeld worden in zogeheten methoden, die een object bewerken. Het is daarmee tevens een inleiding in objectgeorienteerd programmeren."
+      },
+      {
+        "title": "Informatica introductieproject",
+        "teacher": {
+            "firstName": "Jelle",
+            "lastName": "Oosteen"
+            },
+        "description": "Tijdens het project wordt er een Informatica gerelateerd product ontwikkeld in een team van ongeveer 6 studenten. Van deelnemers wordt verwacht dat ze het vak Imperatief programmeren hebben gevolgd en kunnen programmeren in C#."
+        },
+        {
         "title": "Webtechnologie",
         "teacher": { "firstName": "Sergey", "lastName": "Sosnovsky" },
         "description": "Het Internet is een van de meest relevante toepassingen van informatica in de wereld. En voor veel mensen in de buitenwereld staat het Internet zelfs gelijk aan de meest zichtbare component daarvan: het World Wide Web. In deze praktische cursus kijken we hoe voor dit specifieke onderdeel van het Internet geprogrammeerd kan worden, op een veilige en werkbare manier, zowel voor de eindgebruiker als voor de programmeur. De historische context en bijbehorende technische concepten worden toegelicht."
